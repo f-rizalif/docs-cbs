@@ -1,0 +1,1308 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorial Server - CBS</title>
+<meta name="description" content="Tutorial memasang Casuarina Barcode System di komputer server, langkah demi langkah.">
+<style>/*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
+@layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-translate-x:0;--tw-translate-y:0;--tw-translate-z:0;--tw-divide-y-reverse:0;--tw-border-style:solid;--tw-font-weight:initial;--tw-tracking:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000;--tw-leading:initial;--tw-space-y-reverse:0}}}@layer theme{:root,:host{--font-sans:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--color-amber-50:oklch(98.7% .022 95.277);--color-amber-100:oklch(96.2% .059 95.617);--color-amber-200:oklch(92.4% .12 95.746);--color-amber-500:oklch(76.9% .188 70.08);--color-amber-800:oklch(47.3% .137 46.201);--color-amber-900:oklch(41.4% .112 45.904);--color-amber-950:oklch(27.9% .077 45.635);--color-emerald-50:oklch(97.9% .021 166.113);--color-emerald-100:oklch(95% .052 163.051);--color-emerald-200:oklch(90.5% .093 164.15);--color-emerald-300:oklch(84.5% .143 164.978);--color-emerald-400:oklch(76.5% .177 163.223);--color-emerald-500:oklch(69.6% .17 162.48);--color-emerald-600:oklch(59.6% .145 163.225);--color-emerald-700:oklch(50.8% .118 165.612);--color-emerald-800:oklch(43.2% .095 166.913);--color-emerald-900:oklch(37.8% .077 168.94);--color-emerald-950:oklch(26.2% .051 172.552);--color-sky-50:oklch(97.7% .013 236.62);--color-sky-100:oklch(95.1% .026 236.824);--color-sky-500:oklch(68.5% .169 237.323);--color-sky-950:oklch(29.3% .066 243.157);--color-rose-50:oklch(96.9% .015 12.422);--color-rose-100:oklch(94.1% .03 12.58);--color-rose-200:oklch(89.2% .058 10.001);--color-rose-300:oklch(81% .117 11.638);--color-rose-400:oklch(71.2% .194 13.428);--color-rose-500:oklch(64.5% .246 16.439);--color-rose-600:oklch(58.6% .253 17.585);--color-rose-700:oklch(51.4% .222 16.935);--color-rose-800:oklch(45.5% .188 13.697);--color-rose-900:oklch(41% .159 10.272);--color-rose-950:oklch(27.1% .105 12.094);--color-slate-50:oklch(98.4% .003 247.858);--color-slate-100:oklch(96.8% .007 247.896);--color-slate-200:oklch(92.9% .013 255.508);--color-slate-300:oklch(86.9% .022 252.894);--color-slate-400:oklch(70.4% .04 256.788);--color-slate-500:oklch(55.4% .046 257.417);--color-slate-600:oklch(44.6% .043 257.281);--color-slate-700:oklch(37.2% .044 257.287);--color-slate-800:oklch(27.9% .041 260.031);--color-slate-900:oklch(20.8% .042 265.755);--color-slate-950:oklch(12.9% .042 264.695);--color-black:#000;--color-white:#fff;--spacing:.25rem;--container-3xl:48rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-base:1rem;--text-base--line-height:calc(1.5 / 1);--text-lg:1.125rem;--text-lg--line-height:calc(1.75 / 1.125);--text-2xl:1.5rem;--text-2xl--line-height:calc(2 / 1.5);--font-weight-normal:400;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--tracking-wide:.025em;--leading-relaxed:1.625;--radius-lg:.5rem;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4, 0, .2, 1);--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}main h2{margin-top:calc(var(--spacing) * 14);margin-bottom:calc(var(--spacing) * 4);scroll-margin-top:calc(var(--spacing) * 24);border-bottom-style:var(--tw-border-style);border-bottom-width:2px;border-color:var(--color-emerald-500);padding-bottom:calc(var(--spacing) * 2);font-size:var(--text-2xl);line-height:var(--tw-leading,var(--text-2xl--line-height));--tw-font-weight:var(--font-weight-bold);font-weight:var(--font-weight-bold);color:var(--color-emerald-900)}main h2:where(.dark,.dark *){color:var(--color-emerald-300)}main h3{margin-top:calc(var(--spacing) * 9);margin-bottom:calc(var(--spacing) * 3);scroll-margin-top:calc(var(--spacing) * 24);align-items:center;gap:calc(var(--spacing) * 2.5);font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height));--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold);display:flex}main h4{margin-top:calc(var(--spacing) * 6);margin-bottom:calc(var(--spacing) * 2);font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height));--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}main h6{margin-bottom:calc(var(--spacing) * 1.5);font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height));--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}main p{margin-block:calc(var(--spacing) * 3);--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}main a{color:var(--color-emerald-700);text-underline-offset:2px;text-decoration-line:underline}main a:where(.dark,.dark *){color:var(--color-emerald-400)}main ul:not(.ceklis){margin-block:calc(var(--spacing) * 3);list-style-type:disc}:where(main ul:not(.ceklis)>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)))}main ul:not(.ceklis){padding-left:calc(var(--spacing) * 6)}code{background-color:var(--color-slate-100);padding-inline:calc(var(--spacing) * 1.5);padding-block:calc(var(--spacing) * .5);font-family:var(--font-mono);color:var(--color-rose-700);border-radius:.25rem;font-size:.85em}code:where(.dark,.dark *){background-color:var(--color-slate-800);color:var(--color-rose-300)}pre{margin-block:calc(var(--spacing) * 4);border-radius:var(--radius-lg);border-style:var(--tw-border-style);border-width:1px;border-color:var(--color-slate-800);background-color:var(--color-slate-900);padding:calc(var(--spacing) * 4);padding-right:calc(var(--spacing) * 16);--tw-leading:var(--leading-relaxed);font-size:.8125rem;line-height:var(--leading-relaxed);color:var(--color-slate-100);position:relative;overflow-x:auto}pre:where(.dark,.dark *){background-color:var(--color-black)}pre code{padding:calc(var(--spacing) * 0);color:inherit;background-color:#0000}kbd{border-style:var(--tw-border-style);border-width:1px;border-color:var(--color-slate-400);background-color:var(--color-slate-200);padding-inline:calc(var(--spacing) * 1.5);padding-block:calc(var(--spacing) * .5);font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height));--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold);color:var(--color-slate-800);border-radius:.25rem}kbd:where(.dark,.dark *){border-color:var(--color-slate-600);background-color:var(--color-slate-700);color:var(--color-slate-100)}}@layer components{.logo-topeng{-webkit-mask-image:var(--logo);-webkit-mask-image:var(--logo);mask-image:var(--logo);-webkit-mask-image:var(--logo);-webkit-mask-position:50%;mask-position:50%;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}.toc{cursor:pointer;border-radius:var(--radius-lg);padding-inline:calc(var(--spacing) * 3);padding-block:calc(var(--spacing) * 1);font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height));--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium);color:var(--color-emerald-800);transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration));text-decoration-line:none;display:block}@media (hover:hover){.toc:hover{background-color:var(--color-emerald-100)}}@media (min-width:48rem){.toc{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}}.toc:where(.dark,.dark *){color:var(--color-slate-200)}@media (hover:hover){.toc:where(.dark,.dark *):hover{background-color:var(--color-slate-700)}}.toc-awas{color:var(--color-rose-700)}.toc-awas:where(.dark,.dark *){color:var(--color-rose-400)}.toc-anak{padding-left:calc(var(--spacing) * 4);position:relative}.toc-anak>.toc{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height));color:var(--color-emerald-700)}@media (hover:hover){.toc-anak>.toc:hover{background-color:var(--color-emerald-300)}}.toc-anak>.toc:where(.dark,.dark *){color:var(--color-slate-300)}@media (hover:hover){.toc-anak>.toc:where(.dark,.dark *):hover{background-color:var(--color-slate-950)}}.toc-anak>.toc-awas{color:var(--color-rose-700)}.toc-anak>.toc-awas:where(.dark,.dark *){color:var(--color-rose-400)}.toc-anak:before,.toc-anak:after{content:"";pointer-events:none;left:calc(var(--spacing) * 2);background-color:var(--color-emerald-300);position:absolute}:is():where(.dark,.dark *){background-color:var(--color-slate-600)}.toc-anak:before{top:calc(var(--spacing) * 0);bottom:calc(var(--spacing) * 0);width:1px}.toc-anak.toc-akhir:before{height:calc(var(--spacing) * 3.5);bottom:auto}.toc-anak:after{top:calc(var(--spacing) * 3.5);height:1px;width:calc(var(--spacing) * 2)}.toc.aktif{border-right-style:var(--tw-border-style);border-right-width:6px;border-color:var(--color-emerald-600);color:var(--color-emerald-900);background-color:#0000;border-radius:0}.toc.aktif:where(.dark,.dark *){border-color:var(--color-slate-300);color:var(--color-white);background-color:#0000}.langkah{height:calc(var(--spacing) * 8);width:calc(var(--spacing) * 8);background-color:var(--color-emerald-700);font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height));--tw-font-weight:var(--font-weight-bold);font-weight:var(--font-weight-bold);color:var(--color-white);border-radius:3.40282e38px;flex-shrink:0;justify-content:center;align-items:center;display:inline-flex}.langkah-merah{background-color:var(--color-rose-600)}.callout{margin-block:calc(var(--spacing) * 4);border-radius:var(--radius-lg);border-left-style:var(--tw-border-style);padding:calc(var(--spacing) * 4);font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height));border-left-width:4px}.callout p:first-child{margin-top:calc(var(--spacing) * 0)}.callout p:last-child{margin-bottom:calc(var(--spacing) * 0)}.callout-info{border-color:var(--color-sky-500);background-color:var(--color-sky-50);color:var(--color-sky-950)}.callout-info:where(.dark,.dark *){background-color:#052f4a66}@supports (color:color-mix(in lab, red, red)){.callout-info:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-sky-950) 40%, transparent)}}.callout-info:where(.dark,.dark *){color:var(--color-sky-100)}.callout-warn{border-color:var(--color-amber-500);background-color:var(--color-amber-50);color:var(--color-amber-950)}.callout-warn:where(.dark,.dark *){background-color:#46190166}@supports (color:color-mix(in lab, red, red)){.callout-warn:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-amber-950) 40%, transparent)}}.callout-warn:where(.dark,.dark *){color:var(--color-amber-100)}.callout-danger{border-color:var(--color-rose-500);background-color:var(--color-rose-50);color:var(--color-rose-950)}.callout-danger:where(.dark,.dark *){background-color:#4d021866}@supports (color:color-mix(in lab, red, red)){.callout-danger:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-rose-950) 40%, transparent)}}.callout-danger:where(.dark,.dark *){color:var(--color-rose-100)}.callout-ok{border-color:var(--color-emerald-500);background-color:var(--color-emerald-50);color:var(--color-emerald-950)}.callout-ok:where(.dark,.dark *){background-color:#002c2266}@supports (color:color-mix(in lab, red, red)){.callout-ok:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-emerald-950) 40%, transparent)}}.callout-ok:where(.dark,.dark *){color:var(--color-emerald-100)}.callout-netral{border-color:var(--color-slate-400);background-color:var(--color-slate-50);color:var(--color-slate-700)}.callout-netral:where(.dark,.dark *){background-color:var(--color-slate-800);color:var(--color-slate-300)}.kartu{border-radius:var(--radius-lg);border-style:var(--tw-border-style);border-width:1px;border-color:var(--color-slate-200);background-color:var(--color-white);padding:calc(var(--spacing) * 4);font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.kartu:where(.dark,.dark *){border-color:var(--color-slate-700);background-color:var(--color-slate-800)}.kartu p{margin-block:calc(var(--spacing) * 1.5);color:var(--color-slate-600)}.kartu p:where(.dark,.dark *){color:var(--color-slate-400)}.pil{margin-left:calc(var(--spacing) * 1);padding-inline:calc(var(--spacing) * 2);padding-block:calc(var(--spacing) * .5);vertical-align:middle;font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height));--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold);border-radius:3.40282e38px;display:inline-block}.pil-emerald{background-color:var(--color-emerald-100);color:var(--color-emerald-800)}.pil-emerald:where(.dark,.dark *){background-color:var(--color-emerald-900);color:var(--color-emerald-200)}.pil-amber{background-color:var(--color-amber-100);color:var(--color-amber-800)}.pil-amber:where(.dark,.dark *){background-color:var(--color-amber-900);color:var(--color-amber-200)}.pil-rose{background-color:var(--color-rose-100);color:var(--color-rose-800)}.pil-rose:where(.dark,.dark *){background-color:var(--color-rose-900);color:var(--color-rose-200)}.tbl-wrap{margin-block:calc(var(--spacing) * 4);border-radius:var(--radius-lg);border-style:var(--tw-border-style);border-width:1px;border-color:var(--color-slate-200);overflow-x:auto}.tbl-wrap:where(.dark,.dark *){border-color:var(--color-slate-700)}.tbl{border-collapse:collapse;width:100%;font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.tbl thead th{border-bottom-style:var(--tw-border-style);border-bottom-width:1px;border-color:var(--color-slate-200);background-color:var(--color-slate-100);padding-inline:calc(var(--spacing) * 3);padding-block:calc(var(--spacing) * 2);text-align:left;--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tbl thead th:where(.dark,.dark *){border-color:var(--color-slate-700);background-color:var(--color-slate-800)}.tbl td{border-bottom-style:var(--tw-border-style);border-bottom-width:1px;border-color:var(--color-slate-200);padding-inline:calc(var(--spacing) * 3);padding-block:calc(var(--spacing) * 2);vertical-align:top;color:var(--color-slate-700)}.tbl td:where(.dark,.dark *){border-color:var(--color-slate-700);color:var(--color-slate-300)}.tbl tbody tr:last-child td{border-bottom-style:var(--tw-border-style);border-bottom-width:0}.tbl td pre{margin-block:calc(var(--spacing) * 2)}.ceklis{margin-block:calc(var(--spacing) * 4);padding-left:calc(var(--spacing) * 0);list-style-type:none}.ceklis li{border-bottom-style:var(--tw-border-style);border-bottom-width:1px;border-color:var(--color-slate-200);padding-block:calc(var(--spacing) * 2);padding-left:calc(var(--spacing) * 8);font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height));--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed);position:relative}.ceklis li:where(.dark,.dark *){border-color:var(--color-slate-700)}.ceklis li:before{content:"☐";top:calc(var(--spacing) * 1.5);left:calc(var(--spacing) * 1);font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height));color:var(--color-emerald-600);position:absolute}.ceklis li:before:where(){color:var(--color-emerald-400)}.ket{margin-top:calc(var(--spacing) * -2);margin-bottom:calc(var(--spacing) * 3);font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height));color:var(--color-slate-500)}.ket:where(.dark,.dark *){color:var(--color-slate-400)}.btn-salin{top:calc(var(--spacing) * 2);right:calc(var(--spacing) * 2);cursor:pointer;border-style:var(--tw-border-style);border-width:1px;border-color:var(--color-slate-600);background-color:var(--color-slate-800);padding-inline:calc(var(--spacing) * 2);padding-block:calc(var(--spacing) * .5);font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height));color:var(--color-slate-300);opacity:.6;transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to,opacity,box-shadow,transform,translate,scale,rotate,filter,-webkit-backdrop-filter,backdrop-filter,display,content-visibility,overlay,pointer-events;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration));border-radius:.25rem;position:absolute}@media (hover:hover){.btn-salin:hover{background-color:var(--color-slate-700);opacity:1}}}@layer utilities{.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:calc(var(--spacing) * 0)}.start{inset-inline-start:var(--spacing)}.top-0{top:calc(var(--spacing) * 0)}.top-1\/2{top:50%}.right-4{right:calc(var(--spacing) * 4)}.bottom-0{bottom:calc(var(--spacing) * 0)}.left-0{left:calc(var(--spacing) * 0)}.left-4{left:calc(var(--spacing) * 4)}.left-80{left:calc(var(--spacing) * 80)}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-inline:auto}.my-4{margin-block:calc(var(--spacing) * 4)}.my-5{margin-block:calc(var(--spacing) * 5)}.my-10{margin-block:calc(var(--spacing) * 10)}.mt-1{margin-top:calc(var(--spacing) * 1)}.mt-2{margin-top:calc(var(--spacing) * 2)}.mt-6{margin-top:calc(var(--spacing) * 6)}.mt-8{margin-top:calc(var(--spacing) * 8)}.mb-0{margin-bottom:calc(var(--spacing) * 0)}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.mb-2{margin-bottom:calc(var(--spacing) * 2)}.mb-3{margin-bottom:calc(var(--spacing) * 3)}.ml-2{margin-left:calc(var(--spacing) * 2)}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-flex{display:inline-flex}.h-5{height:calc(var(--spacing) * 5)}.h-6{height:calc(var(--spacing) * 6)}.h-9{height:calc(var(--spacing) * 9)}.h-10{height:calc(var(--spacing) * 10)}.h-12{height:calc(var(--spacing) * 12)}.h-16{height:calc(var(--spacing) * 16)}.min-h-screen{min-height:100vh}.w-1\/3{width:33.3333%}.w-1\/4{width:25%}.w-1\/5{width:20%}.w-5{width:calc(var(--spacing) * 5)}.w-6{width:calc(var(--spacing) * 6)}.w-9{width:calc(var(--spacing) * 9)}.w-10{width:calc(var(--spacing) * 10)}.w-11{width:calc(var(--spacing) * 11)}.w-12{width:calc(var(--spacing) * 12)}.w-24{width:calc(var(--spacing) * 24)}.w-80{width:calc(var(--spacing) * 80)}.w-full{width:100%}.max-w-3xl{max-width:var(--container-3xl)}.min-w-0{min-width:calc(var(--spacing) * 0)}.flex-1{flex:1}.shrink-0{flex-shrink:0}.-translate-x-full{--tw-translate-x:-100%;translate:var(--tw-translate-x) var(--tw-translate-y)}.translate-x-0{--tw-translate-x:calc(var(--spacing) * 0);translate:var(--tw-translate-x) var(--tw-translate-y)}.-translate-y-1\/2{--tw-translate-y:calc(calc(1 / 2 * 100%) * -1);translate:var(--tw-translate-x) var(--tw-translate-y)}.cursor-pointer{cursor:pointer}.resize{resize:both}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.gap-1{gap:calc(var(--spacing) * 1)}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}:where(.divide-y>:not(:last-child)){--tw-divide-y-reverse:0;border-bottom-style:var(--tw-border-style);border-top-style:var(--tw-border-style);border-top-width:calc(1px * var(--tw-divide-y-reverse));border-bottom-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)))}:where(.divide-emerald-200>:not(:last-child)){border-color:var(--color-emerald-200)}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.rounded-full{border-radius:3.40282e38px}.rounded-lg{border-radius:var(--radius-lg)}.border{border-style:var(--tw-border-style);border-width:1px}.border-r{border-right-style:var(--tw-border-style);border-right-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-emerald-100{border-color:var(--color-emerald-100)}.border-emerald-300{border-color:var(--color-emerald-300)}.border-rose-300{border-color:var(--color-rose-300)}.border-slate-200{border-color:var(--color-slate-200)}.bg-amber-50{background-color:var(--color-amber-50)}.bg-black\/60{background-color:#0009}@supports (color:color-mix(in lab, red, red)){.bg-black\/60{background-color:color-mix(in oklab, var(--color-black) 60%, transparent)}}.bg-emerald-50{background-color:var(--color-emerald-50)}.bg-emerald-100{background-color:var(--color-emerald-100)}.bg-emerald-200{background-color:var(--color-emerald-200)}.bg-emerald-800{background-color:var(--color-emerald-800)}.bg-emerald-900{background-color:var(--color-emerald-900)}.bg-emerald-950\/40{background-color:#002c2266}@supports (color:color-mix(in lab, red, red)){.bg-emerald-950\/40{background-color:color-mix(in oklab, var(--color-emerald-950) 40%, transparent)}}.bg-rose-50{background-color:var(--color-rose-50)}.bg-slate-50{background-color:var(--color-slate-50)}.bg-white{background-color:var(--color-white)}.p-0\.5{padding:calc(var(--spacing) * .5)}.p-3{padding:calc(var(--spacing) * 3)}.p-4{padding:calc(var(--spacing) * 4)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-3{padding-inline:calc(var(--spacing) * 3)}.px-4{padding-inline:calc(var(--spacing) * 4)}.py-1{padding-block:calc(var(--spacing) * 1)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2\.5{padding-block:calc(var(--spacing) * 2.5)}.py-8{padding-block:calc(var(--spacing) * 8)}.pt-1{padding-top:calc(var(--spacing) * 1)}.pb-2{padding-bottom:calc(var(--spacing) * 2)}.text-center{text-align:center}.font-mono{font-family:var(--font-mono)}.text-base{font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.font-bold{--tw-font-weight:var(--font-weight-bold);font-weight:var(--font-weight-bold)}.font-normal{--tw-font-weight:var(--font-weight-normal);font-weight:var(--font-weight-normal)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-wide{--tw-tracking:var(--tracking-wide);letter-spacing:var(--tracking-wide)}.break-all{word-break:break-all}.text-emerald-600{color:var(--color-emerald-600)}.text-emerald-700{color:var(--color-emerald-700)}.text-emerald-800{color:var(--color-emerald-800)}.text-emerald-900{color:var(--color-emerald-900)}.text-emerald-950{color:var(--color-emerald-950)}.text-rose-600{color:var(--color-rose-600)}.text-slate-500{color:var(--color-slate-500)}.text-slate-600{color:var(--color-slate-600)}.text-white{color:var(--color-white)}.uppercase{text-transform:uppercase}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a), 0 1px 2px -1px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}.transition-colors{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-transform{transition-property:transform,translate,scale,rotate;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}@media (hover:hover){.hover\:bg-emerald-200:hover{background-color:var(--color-emerald-200)}.hover\:bg-white\/10:hover{background-color:#ffffff1a}@supports (color:color-mix(in lab, red, red)){.hover\:bg-white\/10:hover{background-color:color-mix(in oklab, var(--color-white) 10%, transparent)}}}@media (min-width:40rem){.sm\:right-6{right:calc(var(--spacing) * 6)}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:px-6{padding-inline:calc(var(--spacing) * 6)}}@media (min-width:48rem){.md\:sticky{position:sticky}.md\:top-0{top:calc(var(--spacing) * 0)}.md\:z-20{z-index:20}.md\:mb-2{margin-bottom:calc(var(--spacing) * 2)}.md\:hidden{display:none}.md\:h-12{height:calc(var(--spacing) * 12)}.md\:h-screen{height:100vh}.md\:w-12{width:calc(var(--spacing) * 12)}.md\:w-64{width:calc(var(--spacing) * 64)}.md\:translate-x-0{--tw-translate-x:calc(var(--spacing) * 0);translate:var(--tw-translate-x) var(--tw-translate-y)}.md\:gap-2{gap:calc(var(--spacing) * 2)}.md\:pt-2{padding-top:calc(var(--spacing) * 2)}.md\:pb-4{padding-bottom:calc(var(--spacing) * 4)}}.dark\:block:where(.dark,.dark *){display:block}.dark\:hidden:where(.dark,.dark *){display:none}.dark\:translate-x-5:where(.dark,.dark *){--tw-translate-x:calc(var(--spacing) * 5);translate:var(--tw-translate-x) var(--tw-translate-y)}:where(.dark\:divide-slate-700:where(.dark,.dark *)>:not(:last-child)){border-color:var(--color-slate-700)}.dark\:border-emerald-800:where(.dark,.dark *){border-color:var(--color-emerald-800)}.dark\:border-rose-800:where(.dark,.dark *){border-color:var(--color-rose-800)}.dark\:border-slate-700:where(.dark,.dark *){border-color:var(--color-slate-700)}.dark\:bg-amber-950\/40:where(.dark,.dark *){background-color:#46190166}@supports (color:color-mix(in lab, red, red)){.dark\:bg-amber-950\/40:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-amber-950) 40%, transparent)}}.dark\:bg-emerald-950\/40:where(.dark,.dark *){background-color:#002c2266}@supports (color:color-mix(in lab, red, red)){.dark\:bg-emerald-950\/40:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-emerald-950) 40%, transparent)}}.dark\:bg-rose-950\/40:where(.dark,.dark *){background-color:#4d021866}@supports (color:color-mix(in lab, red, red)){.dark\:bg-rose-950\/40:where(.dark,.dark *){background-color:color-mix(in oklab, var(--color-rose-950) 40%, transparent)}}.dark\:bg-slate-100:where(.dark,.dark *){background-color:var(--color-slate-100)}.dark\:bg-slate-500:where(.dark,.dark *){background-color:var(--color-slate-500)}.dark\:bg-slate-700:where(.dark,.dark *){background-color:var(--color-slate-700)}.dark\:bg-slate-800:where(.dark,.dark *){background-color:var(--color-slate-800)}.dark\:bg-slate-900:where(.dark,.dark *){background-color:var(--color-slate-900)}.dark\:bg-white:where(.dark,.dark *){background-color:var(--color-white)}.dark\:text-emerald-400:where(.dark,.dark *){color:var(--color-emerald-400)}.dark\:text-rose-400:where(.dark,.dark *){color:var(--color-rose-400)}.dark\:text-slate-50:where(.dark,.dark *){color:var(--color-slate-50)}.dark\:text-slate-200:where(.dark,.dark *){color:var(--color-slate-200)}.dark\:text-slate-400:where(.dark,.dark *){color:var(--color-slate-400)}.dark\:text-slate-900:where(.dark,.dark *){color:var(--color-slate-900)}.dark\:text-white:where(.dark,.dark *){color:var(--color-white)}@media (hover:hover){.dark\:hover\:bg-slate-200:where(.dark,.dark *):hover{background-color:var(--color-slate-200)}}}@media print{.no-print{display:none!important}body{font-size:10.5pt}pre{color:#0f172a!important;background:#f1f5f9!important;border:1px solid #cbd5e1!important}main{max-width:none!important}h2,h3{break-after:avoid}.callout,.kartu,table{break-inside:avoid}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-divide-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-tracking{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-leading{syntax:"*";inherits:false}@property --tw-space-y-reverse{syntax:"*";inherits:false;initial-value:0}</style>
+<script>
+  /* Tema dipasang SEBELUM body dirender agar tidak ada kedip putih saat halaman
+     dibuka dalam mode malam. Pilihan manual disimpan; bila belum pernah memilih,
+     ikut preferensi sistem. */
+  try {
+    var t = localStorage.getItem("tutorial_tema");
+    if (t === "dark" || (t === null && matchMedia("(prefers-color-scheme: dark)").matches))
+      document.documentElement.classList.add("dark");
+  } catch (e) {}
+</script>
+</head>
+<body class="min-h-screen bg-white text-emerald-950 dark:bg-slate-900 dark:text-slate-50 antialiased">
+
+<div class="relative flex">
+
+<!-- ══════════ BACKDROP (layar kecil, saat sidebar terbuka) ══════════ -->
+<div id="backdrop" aria-hidden="true" class="fixed inset-0 z-40 hidden bg-black/60 md:hidden"></div>
+
+<!-- ══════════ SIDEBAR ══════════ -->
+<aside id="sidebar" class="fixed top-0 bottom-0 left-0 z-40 w-80 shrink-0 -translate-x-full overflow-y-auto border-r border-emerald-100 bg-emerald-50 p-3 transition-transform md:sticky md:top-0 md:z-20 md:h-screen md:w-64 md:translate-x-0 dark:border-slate-700 dark:bg-slate-800 no-print">
+
+  <!-- Kepala sidebar — logo di atas judul, rata tengah -->
+  <div class="mb-1 flex flex-col items-center gap-1 px-2 pt-1 pb-2 text-center md:mb-2 md:gap-2 md:pt-2 md:pb-4">
+    <div role="img" aria-label="Logo CBS" style="--logo:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNTEyIgogICBoZWlnaHQ9IjUxMiIKICAgdmlld0JveD0iMCAwIDUxMiA1MTIiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzEiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIGlua3NjYXBlOnZlcnNpb249IjEuNC40IChkY2FmM2U3ZDllLCAyMDI2LTA1LTA1KSIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9nb19DQlN2My5zdmciCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXcxIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzAwMDAwMCIKICAgICBib3JkZXJvcGFjaXR5PSIwLjI1IgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBpbmtzY2FwZTpkZXNrY29sb3I9IiNkMWQxZDEiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB4IgogICAgIGlua3NjYXBlOnpvb209IjEuMTA4OTk3NSIKICAgICBpbmtzY2FwZTpjeD0iMjMxLjI4OTk2IgogICAgIGlua3NjYXBlOmN5PSIyOTEuNzA0ODgiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMTIiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9IjAiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjAiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllcjEiIC8+PGRlZnMKICAgICBpZD0iZGVmczEiIC8+PGcKICAgICBpbmtzY2FwZTpsYWJlbD0iTGF5ZXIgMSIKICAgICBpbmtzY2FwZTpncm91cG1vZGU9ImxheWVyIgogICAgIGlkPSJsYXllcjEiPjxnCiAgICAgICBpZD0iZzQiCiAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjQ3MTk0NzExLDAsMCwwLjQ3MTk0NzExLDE3MC42NTUxNCwtMTY3Ljg5NDMyKSI+PHBhdGgKICAgICAgICAgZD0ibSAtMzExLjU5ODAyLDYwNS43Mjg2OCB2IDM2Ljk4MzA1IGggMzYuOTc4MDQgdiAtMzYuOTgzMDUgeiBtIDEzNi45NzgzLDAgdiAzNi45ODMwNSBoIDM2Ljk4MzA1IHYgLTM2Ljk4MzA1IHogbSAtMTM2Ljk3ODMsMTM2Ljk4MzMxIHYgMzYuOTc4MDQgaCAzNi45NzgwNCB2IC0zNi45NzgwNCB6IG0gMCwxMzYuOTc4MzEgdiAzNi45ODMwNCBoIDM2Ljk3ODA0IFYgODc5LjY5MDMgWiBtIDAsMTM2Ljk4MzMgdiAzNi45NzgxIGggMzYuOTc4MDQgdiAtMzYuOTc4MSB6IG0gMCwxMzYuOTc4MyB2IDM2Ljk4MzEgaCAzNi45NzgwNCB2IC0zNi45ODMxIHogbSAxMzYuOTc4MywwIHYgMzYuOTgzMSBoIDM2Ljk4MzA1IHYgLTM2Ljk4MzEgeiIKICAgICAgICAgc3R5bGU9ImZpbGw6IzAwNGYwMDtzdHJva2U6IzAwNGYwMDtzdHJva2Utd2lkdGg6MTAwIgogICAgICAgICBpZD0icGF0aDciIC8+PHBhdGgKICAgICAgICAgZD0ibSA2MzYuMjkxMjYsNjA1LjcyODY4IHYgMzYuOTgzMDUgSCA2NzMuMjY5MyBWIDYwNS43Mjg2OCBaIE0gNDk5LjMwNzk1LDc0Mi43MTE5OSB2IDM2Ljk3ODA0IEggNTM2LjI5MSB2IC0zNi45NzgwNCB6IG0gMCwxMzYuOTc4MzEgdiAzNi45ODMwNCBIIDUzNi4yOTEgViA4NzkuNjkwMyBaIG0gMTM2Ljk4MzMxLDAgdiAzNi45ODMwNCBIIDY3My4yNjkzIFYgODc5LjY5MDMgWiBtIDAsMTM2Ljk4MzMgdiAzNi45NzgxIGggMzYuOTc4MDQgdiAtMzYuOTc4MSB6IG0gLTEzNi45ODMzMSwxMzYuOTc4MyB2IDM2Ljk4MzEgSCA1MzYuMjkxIHYgLTM2Ljk4MzEgeiIKICAgICAgICAgc3R5bGU9ImZpbGw6IzAwNGYwMDtzdHJva2U6IzAwNGYwMDtzdHJva2Utd2lkdGg6MTAwIgogICAgICAgICBpZD0icGF0aDkiIC8+PHBhdGgKICAgICAgICAgZD0ibSAyNS4zNjU4MTEsNjA1LjcyODY4IHYgMzYuOTgzMDUgaCAzNi45NzgwNDEgdiAtMzYuOTgzMDUgeiBtIDEzNi45NzgzMDksMCB2IDM2Ljk4MzA1IGggMzYuOTgzMDQgViA2MDUuNzI4NjggWiBNIDI1LjM2NTgxMSw3NDIuNzExOTkgdiAzNi45NzgwNCBoIDM2Ljk3ODA0MSB2IC0zNi45NzgwNCB6IG0gMjczLjk2MTYxOSwwIHYgMzYuOTc4MDQgaCAzNi45NzgwNCBWIDc0Mi43MTE5OSBaIE0gMjUuMzY1ODExLDg3OS42OTAzIHYgMzYuOTgzMDQgSCA2Mi4zNDM4NTIgViA4NzkuNjkwMyBaIG0gMTM2Ljk3ODMwOSwwIHYgMzYuOTgzMDQgaCAzNi45ODMwNCBWIDg3OS42OTAzIFogTSAyNS4zNjU4MTEsMTAxNi42NzM2IHYgMzYuOTc4MSBoIDM2Ljk3ODA0MSB2IC0zNi45NzgxIHogbSAyNzMuOTYxNjE5LDAgdiAzNi45NzgxIGggMzYuOTc4MDQgdiAtMzYuOTc4MSB6IE0gMjUuMzY1ODExLDExNTMuNjUxOSB2IDM2Ljk4MzEgaCAzNi45NzgwNDEgdiAtMzYuOTgzMSB6IG0gMTM2Ljk3ODMwOSwwIHYgMzYuOTgzMSBoIDM2Ljk4MzA0IHYgLTM2Ljk4MzEgeiIKICAgICAgICAgc3R5bGU9ImZpbGw6IzAwNGYwMDtzdHJva2U6IzAwNGYwMDtzdHJva2Utd2lkdGg6MTAwIgogICAgICAgICBpZD0icGF0aDgiIC8+PC9nPjwvZz48L3N2Zz4K')" class="logo-topeng h-9 w-9 bg-emerald-900 md:h-12 md:w-12 dark:bg-white"></div>
+    <span class="text-sm font-bold text-emerald-900 dark:text-white">Casuarina Barcode System</span>
+  </div>
+
+  <nav class="mt-1" aria-label="Daftar isi">
+    <p class="mb-2 w-full bg-emerald-200 px-3 py-1.5 text-xs font-semibold tracking-wide text-emerald-800 uppercase dark:bg-slate-700 dark:text-slate-200">Daftar isi</p>
+    <ul class="divide-y divide-emerald-200 dark:divide-slate-700">
+      <li class="relative py-1"><a href="#gambaran" class="toc">Gambaran singkat</a></li>
+      <li class="relative py-1"><a href="#siapkan" class="toc">Yang perlu disiapkan</a></li>
+      <li class="relative py-1">
+        <a href="#bagian-a" class="toc">A · File mana yang di-copy</a>
+        <ul class="mt-1">
+          <li class="toc-anak"><a href="#a-buat" class="toc">Menyiapkan paket</a></li>
+          <li class="toc-anak"><a href="#a-copy" class="toc">Apa yang ikut</a></li>
+          <li class="toc-anak"><a href="#a-jangan" class="toc">Apa yang tidak ikut</a></li>
+          <li class="toc-anak toc-akhir"><a href="#a-cara" class="toc">Mengirim ke server</a></li>
+        </ul>
+      </li>
+      <li class="relative py-1">
+        <a href="#bagian-b" class="toc">B · Setelah file sampai</a>
+        <ul class="mt-1">
+          <li class="toc-anak"><a href="#b1" class="toc">1 · Pasang Node.js</a></li>
+          <li class="toc-anak"><a href="#b1b" class="toc toc-awas">1b · Jam &amp; zona waktu ⚠</a></li>
+          <li class="toc-anak"><a href="#b2" class="toc">2 · Pasang PM2</a></li>
+          <li class="toc-anak"><a href="#b3" class="toc">3 · Install &amp; build</a></li>
+          <li class="toc-anak"><a href="#b4" class="toc toc-awas">4 · Password admin ⚠</a></li>
+          <li class="toc-anak"><a href="#b5" class="toc">5 · Nyalakan pertama kali</a></li>
+          <li class="toc-anak"><a href="#b6" class="toc">6 · Firewall &amp; IP statis</a></li>
+          <li class="toc-anak"><a href="#b6b" class="toc">6b · Nama domain lokal</a></li>
+          <li class="toc-anak"><a href="#b7" class="toc">7 · Beresi lewat Admin</a></li>
+          <li class="toc-anak"><a href="#b8" class="toc">8 · Auto-nyala saat boot</a></li>
+          <li class="toc-anak"><a href="#b9" class="toc">9 · Watchdog &amp; backup</a></li>
+          <li class="toc-anak"><a href="#b10" class="toc">10 · Shortcut PC station</a></li>
+          <li class="toc-anak toc-akhir"><a href="#b11" class="toc">11 · Uji satu line</a></li>
+        </ul>
+      </li>
+      <li class="relative py-1"><a href="#ceklis" class="toc">Ceklis akhir</a></li>
+      <li class="relative py-1"><a href="#masalah" class="toc">Kalau ada masalah</a></li>
+      <li class="relative py-1"><a href="#perawatan" class="toc">Perawatan &amp; update</a></li>
+      <li class="relative py-1"><a href="#internet" class="toc">Kalau jaringan online</a></li>
+      <li class="relative py-1"><a href="#windows" class="toc">Kalau server-nya Windows</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- Tombol tutup mengambang — di luar sidebar, hanya layar kecil -->
+<button type="button" id="tutup-sidebar" aria-label="Tutup daftar isi" class="fixed top-1/2 left-80 z-50 ml-2 hidden h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-emerald-100 text-emerald-900 shadow transition-colors hover:bg-emerald-200 md:hidden dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200 no-print">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59L7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12L5.7 16.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/></svg>
+</button>
+
+<!-- ══════════ KOLOM KANAN — NAVBAR + ISI ══════════ -->
+<div class="flex min-w-0 flex-1 flex-col">
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="sticky top-0 z-30 flex items-center border-b border-emerald-100 bg-emerald-800 px-4 py-2.5 text-white sm:px-6 dark:border-slate-700 dark:bg-slate-800 no-print">
+  <!-- Buka daftar isi (hamburger) — hanya layar kecil -->
+  <button type="button" id="buka-sidebar" aria-label="Buka daftar isi" aria-expanded="false" aria-controls="sidebar" class="absolute left-4 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-white/10 md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+  </button>
+
+  <div class="mx-auto flex items-center gap-2">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iNTEyIgogICBoZWlnaHQ9IjUxMiIKICAgdmlld0JveD0iMCAwIDUxMiA1MTIiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzEiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIGlua3NjYXBlOnZlcnNpb249IjEuNC40IChkY2FmM2U3ZDllLCAyMDI2LTA1LTA1KSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iY2lzX2xvZ29hcHAuc3ZnIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3MSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiMwMDAwMDAiCiAgICAgYm9yZGVyb3BhY2l0eT0iMC4yNSIKICAgICBpbmtzY2FwZTpzaG93cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjZDFkMWQxIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJweCIKICAgICBpbmtzY2FwZTp6b29tPSIxLjU2ODM1OTQiCiAgICAgaW5rc2NhcGU6Y3g9IjI1NiIKICAgICBpbmtzY2FwZTpjeT0iMjU2IgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDEyIgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnMSIgLz48ZGVmcwogICAgIGlkPSJkZWZzMSIgLz48cmVjdAogICAgIHN0eWxlPSJmaWxsOiNjZmZhZTQ7c3Ryb2tlLXdpZHRoOjEwOS4xOCIKICAgICBpZD0icmVjdDEiCiAgICAgd2lkdGg9IjUxMiIKICAgICBoZWlnaHQ9IjUxMiIKICAgICB4PSIwIgogICAgIHk9IjAiCiAgICAgcnk9IjEyNi4wNDg4NCIgLz48ZwogICAgIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiCiAgICAgaWQ9ImxheWVyMSI+PGcKICAgICAgIGlkPSJnNCIKICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuMzU5MDY5NjQsMCwwLDAuMzU5MDY5NjQsMTkxLjA2NzQxLC02Ni41MDk4MykiPjxwYXRoCiAgICAgICAgIGQ9Im0gLTMxMS41OTgwMiw2MDUuNzI4NjggdiAzNi45ODMwNSBoIDM2Ljk3ODA0IHYgLTM2Ljk4MzA1IHogbSAxMzYuOTc4MywwIHYgMzYuOTgzMDUgaCAzNi45ODMwNSB2IC0zNi45ODMwNSB6IG0gLTEzNi45NzgzLDEzNi45ODMzMSB2IDM2Ljk3ODA0IGggMzYuOTc4MDQgdiAtMzYuOTc4MDQgeiBtIDAsMTM2Ljk3ODMxIHYgMzYuOTgzMDQgaCAzNi45NzgwNCBWIDg3OS42OTAzIFogbSAwLDEzNi45ODMzIHYgMzYuOTc4MSBoIDM2Ljk3ODA0IHYgLTM2Ljk3ODEgeiBtIDAsMTM2Ljk3ODMgdiAzNi45ODMxIGggMzYuOTc4MDQgdiAtMzYuOTgzMSB6IG0gMTM2Ljk3ODMsMCB2IDM2Ljk4MzEgaCAzNi45ODMwNSB2IC0zNi45ODMxIHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiMwMDRmMDA7c3Ryb2tlOiMwMDRmMDA7c3Ryb2tlLXdpZHRoOjEwMCIKICAgICAgICAgaWQ9InBhdGg3IiAvPjxwYXRoCiAgICAgICAgIGQ9Im0gNjM2LjI5MTI2LDYwNS43Mjg2OCB2IDM2Ljk4MzA1IEggNjczLjI2OTMgViA2MDUuNzI4NjggWiBNIDQ5OS4zMDc5NSw3NDIuNzExOTkgdiAzNi45NzgwNCBIIDUzNi4yOTEgdiAtMzYuOTc4MDQgeiBtIDAsMTM2Ljk3ODMxIHYgMzYuOTgzMDQgSCA1MzYuMjkxIFYgODc5LjY5MDMgWiBtIDEzNi45ODMzMSwwIHYgMzYuOTgzMDQgSCA2NzMuMjY5MyBWIDg3OS42OTAzIFogbSAwLDEzNi45ODMzIHYgMzYuOTc4MSBoIDM2Ljk3ODA0IHYgLTM2Ljk3ODEgeiBtIC0xMzYuOTgzMzEsMTM2Ljk3ODMgdiAzNi45ODMxIEggNTM2LjI5MSB2IC0zNi45ODMxIHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiMwMDRmMDA7c3Ryb2tlOiMwMDRmMDA7c3Ryb2tlLXdpZHRoOjEwMCIKICAgICAgICAgaWQ9InBhdGg5IiAvPjxwYXRoCiAgICAgICAgIGQ9Im0gMjUuMzY1ODExLDYwNS43Mjg2OCB2IDM2Ljk4MzA1IGggMzYuOTc4MDQxIHYgLTM2Ljk4MzA1IHogbSAxMzYuOTc4MzA5LDAgdiAzNi45ODMwNSBoIDM2Ljk4MzA0IFYgNjA1LjcyODY4IFogTSAyNS4zNjU4MTEsNzQyLjcxMTk5IHYgMzYuOTc4MDQgaCAzNi45NzgwNDEgdiAtMzYuOTc4MDQgeiBtIDI3My45NjE2MTksMCB2IDM2Ljk3ODA0IGggMzYuOTc4MDQgViA3NDIuNzExOTkgWiBNIDI1LjM2NTgxMSw4NzkuNjkwMyB2IDM2Ljk4MzA0IEggNjIuMzQzODUyIFYgODc5LjY5MDMgWiBtIDEzNi45NzgzMDksMCB2IDM2Ljk4MzA0IGggMzYuOTgzMDQgViA4NzkuNjkwMyBaIE0gMjUuMzY1ODExLDEwMTYuNjczNiB2IDM2Ljk3ODEgaCAzNi45NzgwNDEgdiAtMzYuOTc4MSB6IG0gMjczLjk2MTYxOSwwIHYgMzYuOTc4MSBoIDM2Ljk3ODA0IHYgLTM2Ljk3ODEgeiBNIDI1LjM2NTgxMSwxMTUzLjY1MTkgdiAzNi45ODMxIGggMzYuOTc4MDQxIHYgLTM2Ljk4MzEgeiBtIDEzNi45NzgzMDksMCB2IDM2Ljk4MzEgaCAzNi45ODMwNCB2IC0zNi45ODMxIHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiMwMDRmMDA7c3Ryb2tlOiMwMDRmMDA7c3Ryb2tlLXdpZHRoOjEwMCIKICAgICAgICAgaWQ9InBhdGg4IiAvPjwvZz48L2c+PC9zdmc+Cg==" alt="Logo" class="h-6 w-6">
+    <h1 class="text-base font-bold">Tutorial Server - CBS</h1>
+  </div>
+
+  <!-- Sakelar mode malam -->
+  <button type="button" id="sakelar-tema" role="switch" aria-checked="false" aria-label="Mode malam" title="Mode malam" class="absolute right-4 inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-emerald-950/40 p-0.5 transition-colors sm:right-6 dark:bg-slate-500">
+    <span class="inline-flex h-5 w-5 translate-x-0 items-center justify-center rounded-full bg-white text-emerald-900 shadow transition-transform dark:translate-x-5">
+      <!-- Matahari (mode terang) -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" class="dark:hidden"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10zm0-5v2m0 16v2M4 12H2m20 0h-2M5.6 5.6L4.2 4.2m15.6 1.4l1.4-1.4M5.6 18.4l-1.4 1.4m15.6-1.4l1.4 1.4"/></svg>
+      <!-- Bulan (mode malam) -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" class="hidden dark:block"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26a5.4 5.4 0 0 1-5.4-5.4c0-1.81.9-3.42 2.26-4.4c-.44-.06-.9-.1-1.36-.1z"/></svg>
+    </span>
+  </button>
+</header>
+
+<!-- ══════════ ISI ══════════ -->
+<main class="mx-auto w-full min-w-0 max-w-3xl px-4 py-8 sm:px-6">
+
+<div class="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 text-sm">
+  <strong class="font-semibold">Untuk siapa halaman ini.</strong> Anda punya satu komputer baru
+  yang akan dijadikan <em>server</em>, dan ingin memindahkan aplikasi ini ke sana dari komputer
+  development. Semua perintah ditulis lengkap — tinggal salin, ganti bagian yang
+  <code>DITULIS-BEGINI</code>, lalu tempel.
+  <div class="mt-1 text-slate-500 dark:text-slate-400">Yang perlu Anda ganti sendiri hanya dua:
+  <code>IP-SERVER</code> dan <code>NAMA-USER</code>.</div>
+</div>
+
+<!-- ══════════ GAMBARAN ══════════ -->
+<h2 id="gambaran">Gambaran singkat — apa yang sedang kita bangun</h2>
+
+<p>Aplikasi ini <strong>bukan</strong> aplikasi yang dipasang di tiap komputer. Yang dipasang hanya
+di <strong>satu</strong> komputer server. Semua PC station cukup membuka halamannya lewat jaringan
+pabrik.</p>
+
+<pre><code>                    ┌──────────────────────────────┐
+                    │   KOMPUTER SERVER (1 unit)   │
+                    │  ──────────────────────────  │
+                    │   Node.js + PM2              │
+                    │   Backend  : port 5000       │
+                    │   Database : SQLite (1 file) │
+                    │   Frontend : ikut disajikan  │
+                    └───────────────┬──────────────┘
+                                    │  jaringan pabrik (LAN)
+        ┌───────────────┬───────────┼───────────┬───────────────┐
+        │               │           │           │               │
+   ┌────┴────┐    ┌─────┴───┐  ┌────┴────┐ ┌────┴────┐    ┌─────┴────┐
+   │ PC FT   │    │ PC FI1  │  │ PC FI3  │ │ PC      │    │ TV Live  │
+   │ Line 6  │    │ Line 6  │  │ Line 6  │ │ Packing │    │ Monitor  │
+   └─────────┘    └─────────┘  └─────────┘ └─────────┘    └──────────┘
+        └──────── semua buka http://IP-SERVER:5000/... ────────┘</code></pre>
+
+<div class="grid sm:grid-cols-3 gap-3 my-5">
+  <div class="kartu border-emerald-300 dark:border-emerald-800">
+    <h6 class="text-emerald-700 dark:text-emerald-400">Cuma 1 server</h6>
+    <p>Database dan status realtime tersimpan di memori satu proses. <strong>Jangan</strong> pasang
+    aplikasi ini di tiap PC station — tiap PC akan punya database sendiri dan datanya tidak akan
+    pernah menyatu.</p>
+  </div>
+  <div class="kartu">
+    <h6>Tidak perlu nginx</h6>
+    <p>Backend sekaligus menyajikan halaman webnya. Jadi cukup satu alamat:
+    <code>http://IP-SERVER:5000</code>.</p>
+  </div>
+  <div class="kartu">
+    <h6>Tidak perlu internet</h6>
+    <p>Setelah terpasang, sistem jalan penuh di jaringan lokal. Internet hanya dibutuhkan sekali
+    saat memasang Node.js &amp; dependency.</p>
+  </div>
+</div>
+
+<!-- ══════════ SIAPKAN ══════════ -->
+<h2 id="siapkan">Yang perlu disiapkan sebelum mulai</h2>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/4">Hal</th><th>Keterangan</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Komputer server</strong></td>
+      <td>PC/mini-PC biasa sudah cukup (RAM 4 GB, disk 128 GB). Tidak butuh spesifikasi tinggi —
+      beban 9 line untuk sistem ini ringan. Yang penting: <strong>nyala terus</strong> dan
+      <strong>tidak dipakai orang untuk kerja lain</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Sistem operasi</strong></td>
+      <td>Tutorial ini memakai <strong>Ubuntu Server 24.04 LTS</strong> — paling cocok karena
+      watchdog &amp; backup otomatis memakai cron. Kalau servernya Windows, lihat
+      <a href="#windows">catatan di bagian bawah</a>.</td>
+    </tr>
+    <tr>
+      <td><strong>Jaringan</strong></td>
+      <td>Server dan semua PC station harus satu jaringan LAN. Server nanti diberi
+      <strong>IP statis</strong> agar alamatnya tidak berubah-ubah.</td>
+    </tr>
+    <tr>
+      <td><strong>UPS</strong> <span class="pil pil-amber">disarankan</span></td>
+      <td>Semua 9 line bergantung pada satu komputer ini. Listrik padam mendadak saat database
+      sedang menulis adalah risiko terbesar sistem ini.</td>
+    </tr>
+    <tr>
+      <td><strong>Akses</strong></td>
+      <td>Bisa login ke server (langsung di depannya, atau lewat SSH dari komputer Anda) dan punya
+      hak <code>sudo</code>.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════════════════ BAGIAN A ══════════════════════════ -->
+<h2 id="bagian-a">Bagian A — File/folder mana yang harus di-copy</h2>
+
+<p>Folder project Anda berukuran <strong>±748 MB</strong>, tapi yang benar-benar perlu dipindah hanya
+<strong>±45 MB</strong>. Sisanya bukan sekadar pemborosan — ada dua isi yang kalau ikut terbawa
+justru <strong>membuat aplikasi rusak atau salah data</strong>.</p>
+
+<div class="callout callout-ok">
+  <strong>Anda tidak perlu memilih berkasnya satu per satu.</strong> Satu perintah sudah menyiapkan
+  folder berisi tepat apa yang dibutuhkan server. Bagian ini menjelaskan <em>apa isinya dan
+  kenapa</em> — berguna saat suatu hari ada yang perlu diperiksa, tapi tidak wajib dihafal.
+</div>
+
+<h3 id="a-buat">Menyiapkan paketnya — satu perintah</h3>
+
+<p>Di <strong>komputer development</strong> (bukan di server):</p>
+<pre><code>cd /home/alifr/Projects/casuarina-barcode-system
+npm run release</code></pre>
+
+<p>Hasilnya di folder <code>release/</code>:</p>
+<pre><code>release/
+├── cbs-server/              ← INI yang di-copy ke server (jadi /opt/cbs)
+│   ├── backend/
+│   ├── frontend/
+│   ├── package.json
+│   └── CLAUDE.md
+├── cbs-server.tar.gz        ← isi yang sama, terbungkus untuk flashdisk
+└── tutorial-server.html     ← halaman yang sedang Anda baca ini</code></pre>
+
+<p>Perintah itu juga <strong>memeriksa hasilnya sendiri</strong> — memastikan berkas penting ada dan
+yang terlarang tidak ikut. Kalau ada yang meleset, ia berhenti dengan pesan kesalahan, bukan
+menghasilkan paket yang diam-diam rusak.</p>
+
+<div class="callout callout-info">
+  Perintah ini aman diulang kapan saja. Tiap kali dijalankan, isi <code>release/cbs-server/</code>
+  dibuat ulang dari nol sesuai kode terbaru — jadi tidak ada sisa berkas lama yang menempel.
+</div>
+
+<h3 id="a-copy"><span class="text-emerald-600 dark:text-emerald-400">✅</span> Apa saja yang ikut ke dalam paket</h3>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/3">File / folder</th><th>Isi</th></tr></thead>
+  <tbody>
+    <tr><td><code>backend/src/</code></td><td>Seluruh kode backend (API, WebSocket, database).</td></tr>
+    <tr><td><code>backend/scripts/</code></td><td>Terutama <code>backup-db.js</code> dan <code>watchdog.sh</code>.</td></tr>
+    <tr><td><code>backend/package.json</code><br><code>backend/package-lock.json</code></td><td>Daftar dependency backend.</td></tr>
+    <tr><td><code>backend/ecosystem.config.cjs</code></td><td>Konfigurasi PM2. <strong>Akan Anda edit</strong> di langkah B4.</td></tr>
+    <tr><td><code>backend/OPERATIONS.md</code></td><td>Panduan operasional (rujukan saat ada masalah).</td></tr>
+    <tr><td><code>frontend/</code> <span class="text-slate-500">(seluruhnya, kecuali yang di tabel bawah)</span></td><td>Kode halaman web + gambar &amp; video dokumentasi.</td></tr>
+    <tr><td><code>package.json</code><br><code>package-lock.json</code> <span class="text-slate-500">(di root)</span></td><td>Perintah <code>npm run setup</code>, <code>build</code>, <code>start</code>.</td></tr>
+    <tr><td><code>CLAUDE.md</code></td><td>Dokumentasi arsitektur. Opsional, tapi berguna disimpan.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="a-jangan"><span class="text-rose-600 dark:text-rose-400">🚫</span> Apa yang sengaja TIDAK ikut</h3>
+
+<div class="callout callout-danger">
+  <strong>Dua baris pertama di tabel ini yang paling penting.</strong> Sisanya cuma memboroskan
+  waktu copy; dua yang pertama benar-benar merusak. Inilah alasan kenapa
+  <strong>menyalin seluruh folder project itu tidak boleh</strong> — dan kenapa
+  <code>npm run release</code> ada.
+</div>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/4">File / folder</th><th class="w-24">Ukuran</th><th>Kenapa jangan</th></tr></thead>
+  <tbody>
+    <tr class="bg-rose-50 dark:bg-rose-950/40">
+      <td><code>node_modules/</code><br><span class="text-slate-500 text-xs">(ada 3: root, backend, frontend)</span></td>
+      <td>144 MB</td>
+      <td><strong>Akan bikin backend gagal jalan.</strong> Di dalamnya ada
+      <code>better-sqlite3</code> yang berisi file program hasil kompilasi khusus untuk komputer
+      &amp; versi Node <em>Anda</em>. Dipindah ke komputer lain → error
+      <code>NODE_MODULE_VERSION mismatch</code> dan server mati. Yang benar: dipasang ulang di
+      server dengan <code>npm run setup</code> (langkah B3).</td>
+    </tr>
+    <tr class="bg-rose-50 dark:bg-rose-950/40">
+      <td><code>backend/data/</code></td>
+      <td>427 MB</td>
+      <td><strong>Ini database development Anda</strong> — isinya data contoh/uji hasil skrip
+      <code>seed-*.js</code>. Kalau ikut, server produksi lahir dengan data palsu yang nanti
+      bercampur data asli. Server akan membuat database baru yang bersih sendiri.</td>
+    </tr>
+    <tr>
+      <td><code>frontend/dist/</code><br><code>frontend/dist-docs/</code></td>
+      <td>134 MB</td>
+      <td>Hasil build. Dibuat ulang di server dengan <code>npm run build</code> (langkah B3).</td>
+    </tr>
+    <tr>
+      <td><code>backend/logs/</code></td><td>—</td>
+      <td>Catatan log komputer Anda, tidak ada gunanya di server.</td>
+    </tr>
+    <tr>
+      <td><code>demo/</code>, <code>release/</code></td><td>2 MB</td>
+      <td>Screenshot dokumentasi &amp; file ini sendiri. Tidak dipakai aplikasi.</td>
+    </tr>
+    <tr>
+      <td><code>.git/</code></td><td>—</td>
+      <td>Riwayat versi. Tidak perlu kalau Anda mengirim lewat <code>rsync</code>.</td>
+    </tr>
+    <tr>
+      <td>Skrip sekali-pakai<br><span class="text-slate-500 text-xs"><code>seed-*.js</code>,
+      <code>gen_*.cjs</code>, <code>migrate-*.js</code>, <code>fix-*.js</code></span></td>
+      <td>—</td>
+      <td>Alat development untuk membetulkan/mengisi data lama. Tidak ada gunanya di server baru,
+      dan berbahaya bila suatu saat tak sengaja dijalankan di sana. Dari
+      <code>backend/scripts/</code> hanya <code>backup-db.js</code> dan <code>watchdog.sh</code>
+      yang ikut — dua itu memang dipakai produksi.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout callout-info">
+  <strong>Cara gampang mengingatnya:</strong> yang di-copy adalah <em>bahan mentah</em> (kode). Yang
+  tidak di-copy adalah <em>hasil olahan</em> (node_modules, dist) dan <em>data</em>
+  (backend/data). Hasil olahan dibuat ulang di server, data dibuat baru dari nol.
+</div>
+
+<h3 id="a-cara">Mengirim paketnya ke server — pilih salah satu</h3>
+
+<p>Karena <code>release/cbs-server/</code> sudah berisi tepat apa yang dibutuhkan, tidak ada lagi
+daftar pengecualian yang perlu diketik. Cukup kirim folder itu apa adanya.</p>
+
+<h4>Cara 1 · Lewat jaringan <span class="pil pil-emerald">disarankan</span></h4>
+<p class="ket">Jalankan dari <strong>komputer development</strong>. Siapkan dulu foldernya di server:</p>
+<pre><code>ssh NAMA-USER@IP-SERVER "sudo mkdir -p /opt/cbs && sudo chown \$USER:\$USER /opt/cbs"</code></pre>
+<p class="ket">Lalu kirim:</p>
+<pre><code>rsync -avz --progress \
+  /home/alifr/Projects/casuarina-barcode-system/release/cbs-server/ \
+  NAMA-USER@IP-SERVER:/opt/cbs/</code></pre>
+
+<div class="callout callout-warn">
+  <strong>Perhatikan tanda <code>/</code> di ujung <code>cbs-server/</code>.</strong> Garis miring itu
+  berarti "kirim <em>isi</em> folder ini". Tanpa garis miring, isinya akan masuk ke
+  <code>/opt/cbs/cbs-server/</code> dan semua perintah setelah ini jadi salah alamat.
+</div>
+
+<h4>Cara 2 · Flashdisk / hard disk <span class="text-slate-500 font-normal text-sm">(kalau server belum terhubung jaringan)</span></h4>
+<p class="ket">Salin <code>release/cbs-server.tar.gz</code> (±40 MB) ke flashdisk, lalu di
+<strong>server</strong>:</p>
+<pre><code>sudo mkdir -p /opt/cbs
+sudo chown $USER:$USER /opt/cbs
+tar -xzf /media/flashdisk/cbs-server.tar.gz -C /tmp
+mv /tmp/cbs-server/* /tmp/cbs-server/.[!.]* /opt/cbs/ 2>/dev/null
+ls /opt/cbs        # harus terlihat: backend  frontend  package.json  CLAUDE.md</code></pre>
+
+<h4>Cara 3 · Git</h4>
+<p class="ket">Kalau nanti project ini sudah Anda push ke GitHub/GitLab privat, cara ini paling
+rapi untuk update berkala — tapi ingat, <code>git clone</code> membawa <em>seluruh</em> project,
+bukan paket ramping ini. Saat ini <strong>belum ada remote</strong>, jadi lewati dulu.</p>
+<pre><code>git clone ALAMAT-REPO /opt/cbs</code></pre>
+
+<div class="callout callout-info">
+  <strong>Cek cepat setelah mengirim.</strong> Di server, jalankan <code>ls /opt/cbs</code> — harus
+  muncul <code>backend</code>, <code>frontend</code>, dan <code>package.json</code>. Kalau yang
+  muncul justru satu folder bernama <code>cbs-server</code>, berarti garis miring di ujung tadi
+  terlewat; pindahkan isinya naik satu tingkat.
+</div>
+
+<!-- ══════════════════════════ BAGIAN B ══════════════════════════ -->
+<h2 id="bagian-b">Bagian B — Setelah file sampai di komputer server</h2>
+
+<p class="text-slate-600 dark:text-slate-400">Mulai dari sini semua perintah dijalankan
+<strong>di komputer server</strong> (langsung di depannya atau lewat SSH). Kita anggap kodenya ada
+di <code>/opt/cbs</code>.</p>
+
+<div class="callout callout-danger">
+  <strong>Baca langkah 4 sebelum menjalankan langkah 5.</strong> Ada satu pengaturan yang tertulis
+  permanen ke database saat aplikasi pertama kali dinyalakan, dan setelah itu tidak bisa diubah
+  lewat konfigurasi lagi.
+</div>
+
+<h3 id="b1"><span class="langkah">1</span> Pasang Node.js versi 24</h3>
+<p>Samakan versi mayor dengan komputer development (v24) agar dependency berperilaku sama.</p>
+<pre><code>curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+<p>Pastikan berhasil:</p>
+<pre><code>node -v        # harus muncul v24.x.x
+which node     # harus /usr/bin/node</code></pre>
+
+<div class="callout callout-warn">
+  <strong>Jangan pasang Node lewat <code>nvm</code> di server ini.</strong> Node dari nvm tersimpan
+  di folder home dan <strong>tidak terlihat oleh cron</strong>. Akibatnya watchdog &amp; backup
+  otomatis (langkah 9) akan diam-diam tidak pernah jalan — dan Anda baru sadar saat server mati
+  tengah malam dan tidak ada yang menghidupkannya. Pakai cara di atas (NodeSource) supaya Node
+  berada di <code>/usr/bin/node</code> yang selalu terbaca cron.
+</div>
+
+<h3 id="b1b"><span class="langkah langkah-merah">1b</span> Pastikan jam &amp; zona waktu server benar</h3>
+
+<p>Terlihat sepele, tapi ini menentukan kebenaran seluruh data Anda.</p>
+
+<div class="callout callout-danger">
+  <div class="font-semibold mb-1">Semua jam diambil dari jam komputer server — bukan dari PC station.</div>
+  <p class="mb-2">Waktu setiap scan, jam buka/tutup rework, dan tanggal shift semuanya dicatat
+  memakai jam server. <strong>Ubuntu Server yang baru diinstal biasanya memakai zona waktu UTC</strong>,
+  yang <strong>7 jam lebih lambat</strong> dari WIB.</p>
+  <p class="mb-0">Kalau ini terlewat: scan jam 08:00 pagi tercatat sebagai 01:00 dini hari, grafik
+  output bergeser, perhitungan jam istirahat meleset, dan scan sore hari bisa tercatat pada
+  <em>tanggal yang salah</em>. Data yang terlanjur tercatat tidak bisa dibetulkan otomatis — jadi
+  betulkan <strong>sebelum</strong> shift pertama berjalan.</p>
+</div>
+
+<pre><code>sudo timedatectl set-timezone Asia/Jakarta
+timedatectl</code></pre>
+
+<p>Yang harus terlihat:</p>
+<pre><code>Local time: ... WIB
+ Time zone: Asia/Jakarta (WIB, +0700)
+System clock synchronized: yes</code></pre>
+
+<div class="callout callout-info">
+  <strong>Baris <code>synchronized: yes</code></strong> berarti jam server dikoreksi otomatis lewat
+  internet (NTP). Kalau jaringan pabrik terhubung internet, ini biasanya sudah menyala sendiri —
+  dan itu menguntungkan, karena jam komputer bisa melenceng beberapa menit per bulan bila dibiarkan.
+  Bila tertulis <code>no</code>, nyalakan dengan <code>sudo timedatectl set-ntp true</code>.
+</div>
+
+<div class="callout callout-warn">
+  <strong>Jam PC station juga sebaiknya benar.</strong> Data yang tersimpan memakai jam server, tapi
+  hitung mundur &amp; penanda jam istirahat di layar operator memakai jam PC itu sendiri. PC yang
+  jamnya meleset jauh akan menampilkan status istirahat/kerja yang tidak sesuai kenyataan.
+</div>
+
+<h3 id="b2"><span class="langkah">2</span> Pasang PM2</h3>
+<p>PM2 adalah "penjaga" yang menjalankan backend di latar belakang, menyalakannya lagi kalau mati,
+dan menghidupkannya otomatis setelah komputer restart.</p>
+<pre><code>sudo npm install -g pm2
+pm2 -v</code></pre>
+
+<h3 id="b3"><span class="langkah">3</span> Pasang dependency &amp; build halaman web</h3>
+<pre><code>cd /opt/cbs
+npm install          # dependency root (concurrently)
+npm run setup        # dependency backend + frontend — perlu internet, ±2-5 menit
+npm run build        # bikin halaman web siap pakai → frontend/dist</code></pre>
+
+<div class="callout callout-warn">
+  <code>npm run build</code> <strong>wajib</strong>. Kalau dilewati, backend tetap jalan tapi semua
+  halaman akan kosong / <em>404</em>, karena file halaman webnya belum dibuat.
+</div>
+
+<h3 id="b4"><span class="langkah langkah-merah">4</span> Tentukan password admin — <u>sebelum</u> dinyalakan</h3>
+
+<p>Buka file konfigurasi PM2:</p>
+<pre><code>nano /opt/cbs/backend/ecosystem.config.cjs</code></pre>
+
+<p>Cari bagian <code>env:</code> lalu tambahkan dua baris username &amp; password:</p>
+<pre><code>      env: {
+        NODE_ENV: "production",
+        PORT: 5000,
+        ADMIN_USERNAME: "adminCbs",
+        ADMIN_PASSWORD: "GantiDenganPasswordAnda",
+      },</code></pre>
+<p class="ket">Simpan dengan <kbd>Ctrl</kbd>+<kbd>O</kbd> → <kbd>Enter</kbd>, keluar dengan
+<kbd>Ctrl</kbd>+<kbd>X</kbd>.</p>
+
+<div class="callout callout-danger">
+  <div class="font-semibold mb-1">Kenapa harus sekarang, tidak bisa nanti?</div>
+  <p class="mb-2">Saat aplikasi <strong>pertama kali</strong> dinyalakan, database dibuat dan akun
+  admin <strong>disalin dari pengaturan ini ke dalam database</strong>. Setelah itu, aplikasi hanya
+  membaca akun dari database — pengaturan di file ini <strong>tidak pernah dilihat lagi</strong>.</p>
+  <p class="mb-0">Artinya kalau Anda terlanjur menyalakan tanpa mengisinya, password akan terkunci
+  menjadi bawaan (<code>adminCbs</code> / <code>admincbs123!@#</code>), dan mengisi file ini
+  sesudahnya <strong>tidak akan mengubah apa pun</strong>. Bukan bencana — masih bisa diganti lewat
+  menu Admin → DATA PASSWORD — tapi selama itu sistem produksi berjalan dengan password yang
+  tertulis di dokumentasi.</p>
+</div>
+
+<div class="callout callout-netral text-sm">
+  <strong>Catatan teknis:</strong> project ini tidak memakai <code>dotenv</code>, jadi file
+  <code>.env</code> <strong>tidak pernah dibaca</strong>. Satu-satunya tempat mengisi pengaturan
+  adalah blok <code>env</code> di <code>ecosystem.config.cjs</code> ini.
+</div>
+
+<h3 id="b5"><span class="langkah">5</span> Nyalakan untuk pertama kali</h3>
+<pre><code>cd /opt/cbs/backend
+pm2 start ecosystem.config.cjs
+pm2 logs cbs-backend      # lihat log — keluar dengan Ctrl+C</code></pre>
+
+<p>Yang seharusnya muncul di log:</p>
+<pre><code>Server running on http://0.0.0.0:5000
+WebSocket running on ws://0.0.0.0:5000</code></pre>
+
+<p>Kalau muncul baris <code>[frontend] ... tidak ada — jalankan npm run build</code>, berarti
+langkah 3 belum tuntas. Uji dari server sendiri:</p>
+<pre><code>curl http://localhost:5000/api/health
+# jawaban benar: {"status":"ok","timestamp":"..."}</code></pre>
+
+<h4>Database dibuat otomatis di sini — dan sudah terisi</h4>
+<p>Anda <strong>tidak perlu</strong> memasukkan data master apa pun. Saat pertama nyala, sistem
+mengisi sendiri:</p>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/3">Data</th><th>Isi awal</th></tr></thead>
+  <tbody>
+    <tr><td>Daftar Line</td><td>Line 1–12 dibuat; <strong>aktif: 1, 2, 3, 4, 6, 7, 8, 9, 10</strong> (5, 11, 12 non-aktif)</td></tr>
+    <tr><td>Daftar Group</td><td>A–Z dibuat; <strong>A–P aktif</strong>, Q–Z non-aktif</td></tr>
+    <tr><td>Jenis NG</td><td>Daftar lengkap terisi</td></tr>
+    <tr><td>Jadwal Shift</td><td>Shift 1 &amp; 2, versi Normal &amp; Ramadhan (Break 1–4, Waktu Akhir 1–4)</td></tr>
+    <tr><td>Akun Admin</td><td>1 akun, dari yang Anda isi di langkah 4</td></tr>
+    <tr class="bg-amber-50 dark:bg-amber-950/40"><td>Akun Login Leader</td><td><code>leader</code> / <code>leader123</code> → <strong>wajib diganti</strong> (langkah 7)</td></tr>
+    <tr class="bg-amber-50 dark:bg-amber-950/40"><td>Password Edit Data</td><td><strong>KOSONG</strong> → <strong>wajib diisi</strong> (langkah 7)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="b6"><span class="langkah">6</span> Buka firewall &amp; kunci IP server</h3>
+
+<p><strong>Buka port 5000</strong> supaya PC station bisa mengakses. Kalau Anda tahu jangkauan
+alamat jaringan pabrik, batasi hanya untuk jaringan itu — lebih aman, terutama bila jaringannya
+juga terhubung internet:</p>
+<pre><code># Sesuaikan 192.168.1.0/24 dengan jaringan pabrik Anda
+sudo ufw allow from 192.168.1.0/24 to any port 5000 proto tcp
+sudo ufw status</code></pre>
+<p class="ket">Belum tahu jangkauannya? Jalankan <code>ip addr show</code> — kalau IP server
+<code>192.168.1.10/24</code>, maka jangkauannya <code>192.168.1.0/24</code>. Kalau ragu, boleh
+pakai bentuk sederhana <code>sudo ufw allow 5000/tcp</code> dulu, lalu perketat belakangan.</p>
+
+<p><strong>Kunci IP server</strong> agar alamatnya tidak berubah setelah restart — kalau berubah,
+semua shortcut di PC station langsung mati. Dua cara, pilih yang paling mudah bagi Anda:</p>
+
+<div class="grid sm:grid-cols-2 gap-3 my-4">
+  <div class="kartu border-emerald-300 dark:border-emerald-800">
+    <h6 class="text-emerald-700 dark:text-emerald-400">Cara mudah — lewat router</h6>
+    <p>Minta bagian IT membuat <em>DHCP reservation</em> untuk MAC address server. Server tetap
+    "otomatis", tapi router selalu memberi IP yang sama. Tidak perlu ubah apa pun di server.</p>
+    <p class="mb-0">Lihat MAC address &amp; IP sekarang:</p>
+    <pre class="mt-2"><code>ip addr show</code></pre>
+  </div>
+  <div class="kartu">
+    <h6>Cara manual — di server</h6>
+    <p>Ubuntu Server memakai netplan:</p>
+    <pre class="mt-2"><code>sudo nano /etc/netplan/50-cloud-init.yaml
+sudo netplan apply</code></pre>
+    <p class="mb-0 mt-2">Pastikan IP yang Anda pilih <strong>di luar jangkauan DHCP</strong> router,
+    agar tidak bentrok dengan komputer lain.</p>
+  </div>
+</div>
+
+<p>Setelah itu, uji <strong>dari PC lain</strong> di jaringan yang sama — buka browser ke
+<code>http://IP-SERVER:5000</code>. Halaman beranda harus muncul. Kalau belum bisa, lihat
+<a href="#masalah">bagian masalah</a>.</p>
+
+<!-- ══════════ 6b · NAMA DOMAIN LOKAL ══════════ -->
+<h3 id="b6b"><span class="langkah">6b</span> Pakai nama domain lokal (opsional, tapi sangat disarankan)</h3>
+
+<p>Supaya tidak perlu mengetik/mengingat nomor IP, server bisa diberi nama —
+misalnya <code>cbs</code> — sehingga alamatnya menjadi:</p>
+
+<div class="grid sm:grid-cols-2 gap-3 my-4">
+  <div class="kartu">
+    <h6 class="text-slate-500">Sebelum</h6>
+    <p class="mb-0 font-mono text-xs break-all">http://192.168.1.10:5000/proses/line.html?n=6</p>
+  </div>
+  <div class="kartu border-emerald-300 dark:border-emerald-800">
+    <h6 class="text-emerald-700 dark:text-emerald-400">Sesudah</h6>
+    <p class="mb-0 font-mono text-xs break-all">http://cbs.local:5000/proses/line.html?n=6</p>
+  </div>
+</div>
+
+<p>Keuntungan sebenarnya bukan cuma soal enak dibaca. Kalau suatu saat IP server berubah,
+<strong>puluhan shortcut di PC station tidak perlu disentuh sama sekali</strong> — karena yang
+tertulis di shortcut adalah nama, bukan angka. Yang perlu diperbarui hanya
+<em>terjemahan nama → IP</em>, dan seberapa repot itu <strong>sangat tergantung cara yang Anda
+pilih di bawah</strong>.</p>
+
+<div class="callout callout-ok">
+  <strong>Cukup kerjakan bagian A saja.</strong> Mengganti IP dengan nama <em>sambil tetap memakai
+  port 5000</em> adalah bentuk yang paling sederhana sekaligus paling cocok dengan aplikasi ini —
+  koneksi realtime di dalam kode memang menunjuk ke port 5000, jadi semuanya langsung cocok tanpa
+  penyesuaian apa pun. Bagian B (menghilangkan <code>:5000</code>) sifatnya tambahan dan
+  <strong>umumnya tidak perlu</strong> — alasannya dijelaskan di sana.
+</div>
+
+<h4>A · Memberi nama pada server — pilih salah satu dari tiga cara</h4>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/5">Cara</th><th class="w-1/4">Cocok kalau</th><th>Perlu diatur di</th><th class="w-1/4">Kalau IP server berubah</th></tr></thead>
+  <tbody>
+    <tr class="bg-emerald-50 dark:bg-emerald-950/40">
+      <td><strong>1. DNS di router / IT</strong></td>
+      <td>Pabrik punya router yang bisa diatur atau ada server DNS internal</td>
+      <td><strong>Satu tempat saja.</strong> Semua PC langsung mengenal, tanpa disentuh</td>
+      <td>Ubah 1 catatan DNS. <span class="text-slate-500">Semua PC ikut sendiri</span></td>
+    </tr>
+    <tr class="bg-emerald-50 dark:bg-emerald-950/40">
+      <td><strong>2. mDNS (<code>cbs.local</code>)</strong> <span class="pil pil-emerald">paling tahan</span></td>
+      <td>Tidak bisa/tidak mau melibatkan IT, jaringan sederhana satu segmen</td>
+      <td>Server saja. PC Windows &amp; Linux mengenalinya otomatis</td>
+      <td><strong>Tidak perlu apa-apa.</strong> <span class="text-slate-500">Server mengumumkan IP barunya sendiri</span></td>
+    </tr>
+    <tr>
+      <td><strong>3. File <code>hosts</code></strong></td>
+      <td>Dua cara di atas tidak memungkinkan, atau sebagai cadangan</td>
+      <td><strong>Tiap PC station satu per satu</strong> — paling merepotkan</td>
+      <td class="bg-rose-50 dark:bg-rose-950/40"><strong>Semua PC harus diedit ulang</strong> satu per satu</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h5 class="font-semibold mt-6 mb-2">Cara 1 · Minta IT menambah catatan DNS <span class="pil pil-emerald">disarankan</span></h5>
+<p class="ket">Tidak ada perintah yang dijalankan di server. Cukup sampaikan permintaan ini ke
+bagian IT/jaringan:</p>
+<pre><code>Mohon dibuatkan DNS A record di jaringan pabrik:
+
+    nama    : cbs        (atau cbs.pabrik.local — mengikuti domain internal yang dipakai)
+    alamat  : 192.168.1.10        ← IP server dari langkah 6
+    tipe    : A</code></pre>
+<p>Setelah dibuat, uji dari <strong>PC station mana pun</strong> (Command Prompt di Windows):</p>
+<pre><code>ping cbs
+nslookup cbs</code></pre>
+
+<h5 class="font-semibold mt-6 mb-2">Cara 2 · mDNS — nama <code>cbs.local</code> tanpa melibatkan IT</h5>
+<p class="ket">Server "mengumumkan" namanya sendiri ke jaringan. Jalankan <strong>di server</strong>:</p>
+<pre><code>sudo hostnamectl set-hostname cbs
+sudo apt-get install -y avahi-daemon
+sudo systemctl enable --now avahi-daemon
+sudo ufw allow 5353/udp           # port yang dipakai mDNS</code></pre>
+<p>Uji dari PC Windows — perhatikan akhiran <code>.local</code> yang wajib ada:</p>
+<pre><code>ping cbs.local</code></pre>
+
+<div class="callout callout-warn">
+  <strong>Dua hal yang membuat cara ini gagal.</strong> Pertama, akhiran <code>.local</code>
+  <strong>wajib</strong> ditulis — <code>http://cbs</code> saja tidak akan dikenali. Kedua, sebagian
+  jaringan pabrik memblokir lalu lintas <em>multicast</em> antar-switch/VLAN; kalau
+  <code>ping cbs.local</code> gagal dari PC station padahal berhasil di server, kemungkinan besar
+  itu sebabnya — pakai Cara 1 atau Cara 3.
+</div>
+
+<h5 class="font-semibold mt-6 mb-2">Cara 3 · File <code>hosts</code> di tiap PC station</h5>
+<p class="ket">Paling pasti berhasil, tapi harus diulang di setiap PC — dan harus diubah lagi di
+setiap PC kalau IP server berubah.</p>
+<p><strong>Di Windows:</strong> buka <strong>Notepad sebagai Administrator</strong> (klik kanan →
+Run as administrator), lalu buka file:</p>
+<pre><code>C:\Windows\System32\drivers\etc\hosts</code></pre>
+<p>Tambahkan satu baris di paling bawah (IP, spasi/tab, lalu nama):</p>
+<pre><code>192.168.1.10    cbs</code></pre>
+<p class="ket">Simpan. Kalau Notepad menolak menyimpan, berarti belum dibuka sebagai Administrator.</p>
+<p><strong>Di Linux:</strong> <code>sudo nano /etc/hosts</code>, tambahkan baris yang sama.</p>
+
+<h4 class="mt-8">B · Menghilangkan <code>:5000</code> dari alamat
+  <span class="pil pil-amber">umumnya tidak perlu</span></h4>
+
+<div class="callout callout-info">
+  <div class="font-semibold mb-1">Pertimbangkan dulu: apakah ada yang benar-benar mengetik alamat ini?</div>
+  <p class="mb-2">Operator <strong>tidak pernah mengetik alamat</strong> — mereka mengklik shortcut
+  di desktop, dan alamat lengkapnya sudah tertanam di situ. Panjang-pendeknya alamat sama sekali
+  tidak mereka rasakan. Yang mengetik manual hanya Anda dan beberapa orang kantor yang membuka
+  Inspection Report — dan bagi mereka <code>cbs.local:5000</code> sudah jauh lebih baik daripada
+  <code>192.168.1.10:5000</code>.</p>
+  <p class="mb-0">Menghilangkan <code>:5000</code> menambah satu bagian yang bisa rusak (aturan
+  pengalihan port di firewall) demi menghemat enam karakter yang jarang diketik.
+  <strong>Kalau ragu, lewati bagian ini.</strong></p>
+</div>
+
+<p>Kalau tetap ingin dilakukan — misalnya alamatnya akan dicetak/ditempel di dinding — beginilah
+caranya, dan ini yang harus dihindari:</p>
+
+<div class="callout callout-danger">
+  <div class="font-semibold mb-1">Jangan mengubah <code>PORT</code> menjadi 80.</div>
+  <p class="mb-2">Ini cara yang paling terpikirkan, dan justru merusak. Halaman
+  <strong>Live Monitoring akan berhenti bergerak</strong> dan <strong>tombol CALL LEADER mati</strong>,
+  padahal halaman tetap terbuka dan scan tetap tercatat — jadi kerusakannya tidak langsung
+  kelihatan dan bisa berjalan berhari-hari sebelum ketahuan.</p>
+  <p class="mb-0"><strong>Sebabnya:</strong> koneksi realtime (WebSocket &amp; notifikasi panggilan)
+  di dalam aplikasi menunjuk <em>langsung</em> ke port 5000, bukan mengikuti port halaman yang
+  sedang dibuka. Kalau backend dipindah ke port 80, tidak ada lagi yang mendengarkan di 5000 dan
+  koneksi realtime itu gagal tanpa pesan error yang terlihat operator.</p>
+</div>
+
+<p>Yang benar: <strong>biarkan backend tetap di port 5000</strong>, lalu suruh sistem mengalihkan
+port 80 ke sana. Backend tidak berubah sama sekali, port 5000 tetap mendengarkan, realtime tetap
+hidup — dan pengguna cukup mengetik <code>http://cbs</code>.</p>
+
+<p>Buka pengaturan firewall:</p>
+<pre><code>sudo nano /etc/ufw/before.rules</code></pre>
+
+<p>Tambahkan blok berikut di <strong>paling atas file</strong>, sebelum baris <code>*filter</code>:</p>
+<pre><code>*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 5000
+COMMIT</code></pre>
+
+<p>Simpan, lalu izinkan port 80 dan muat ulang:</p>
+<pre><code>sudo ufw allow 80/tcp
+sudo ufw reload
+sudo ufw status</code></pre>
+
+<div class="callout callout-warn">
+  <strong>Port 5000 harus TETAP terbuka.</strong> Jangan tergoda menutupnya setelah port 80 jalan —
+  koneksi realtime tetap memakai port 5000 secara langsung. Pastikan
+  <code>sudo ufw status</code> masih menampilkan <strong>keduanya</strong>: 80 dan 5000.
+</div>
+
+<h4 class="mt-8">Uji — dan pastikan realtime-nya ikut hidup</h4>
+<p>Dari <strong>PC station</strong> (bukan dari server), buka:</p>
+<pre><code>http://cbs.local:5000/                        → halaman beranda harus muncul
+http://cbs.local:5000/monitoring/line.html?n=6 → angka harus BERGERAK saat ada scan</code></pre>
+<p class="ket">Kalau memakai Cara 1 (DNS) tulis <code>http://cbs:5000/...</code>; kalau bagian B
+dikerjakan, <code>:5000</code>-nya boleh dihilangkan.</p>
+
+<div class="callout callout-info">
+  Halaman yang terbuka tapi angkanya diam adalah tanda khas port 5000 tidak terjangkau. Membuka
+  beranda saja <strong>tidak cukup</strong> untuk membuktikan sistem sehat — yang membuktikan
+  adalah angka monitoring yang bergerak.
+</div>
+
+<h4 class="mt-8">Terakhir: perbarui shortcut di PC station</h4>
+<p>Setelah nama domain jalan, ubah shortcut di langkah 10 agar memakai nama, bukan IP:</p>
+<pre><code>"C:\Program Files\Google\Chrome\Application\chrome.exe" --app=http://cbs.local:5000/proses/line.html?n=6 --user-data-dir=C:\CBS\profil-line6 --start-maximized</code></pre>
+<p class="ket">Contoh di atas memakai Cara 2 (mDNS) — akhiran <code>.local</code> wajib ikut ditulis.
+Kalau memakai Cara 1 atau 3, cukup <code>http://cbs:5000/...</code>. Kalau bagian B dikerjakan,
+<code>:5000</code>-nya dihilangkan.</p>
+
+<h4 class="mt-8">C · Kalau suatu hari IP server berubah</h4>
+
+<p>Meski di langkah 6 IP sudah dibuat statis, perubahan IP tetap mungkin terjadi. Yang paling
+sering:</p>
+
+<ul>
+  <li><strong>Komputer server diganti</strong> — hardware baru berarti MAC address baru, sehingga
+  <em>DHCP reservation</em> di router tidak lagi mengenalinya.</li>
+  <li><strong>Router diganti atau di-reset</strong> — daftar reservation-nya ikut hilang.</li>
+  <li><strong>IT menata ulang jaringan</strong> — penggantian subnet atau pemisahan VLAN.</li>
+  <li><strong>OS server diinstal ulang</strong> dan pengaturan IP statisnya belum dipasang lagi.</li>
+  <li><strong>Kabel pindah port/switch</strong> ke segmen jaringan yang berbeda.</li>
+</ul>
+
+<div class="callout callout-ok">
+  <strong>Shortcut di PC station tidak pernah perlu diubah</strong> dalam kejadian mana pun di atas —
+  isinya nama, bukan angka. Begitu juga alamat yang di-bookmark orang kantor.
+</div>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/4">Kalau Anda memakai</th><th>Yang harus dilakukan</th></tr></thead>
+  <tbody>
+    <tr class="bg-emerald-50 dark:bg-emerald-950/40">
+      <td><strong>Cara 2 · mDNS</strong></td>
+      <td><strong>Tidak ada.</strong> Server mengumumkan IP barunya sendiri ke jaringan, dan PC station
+      menerjemahkan ulang nama <code>cbs.local</code> setiap kali menyambung. Sistem pulih sendiri
+      dalam hitungan menit — tanpa ada yang perlu menyentuh satu PC pun.</td>
+    </tr>
+    <tr>
+      <td><strong>Cara 1 · DNS router/IT</strong></td>
+      <td>Minta IT memperbarui <strong>satu</strong> catatan A record ke IP baru. Setelah cache DNS
+      di PC habis (biasanya beberapa menit; bisa dipercepat dengan
+      <code>ipconfig /flushdns</code>), semua PC ikut sendiri.</td>
+    </tr>
+    <tr class="bg-rose-50 dark:bg-rose-950/40">
+      <td><strong>Cara 3 · File <code>hosts</code></strong></td>
+      <td><strong>File <code>hosts</code> di setiap PC station harus diedit ulang</strong> satu per satu.
+      Inilah kelemahan utama cara ini — dan alasan kenapa ia sebaiknya hanya dipakai sebagai
+      cadangan, bukan cara utama.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout callout-info">
+  <strong>Aplikasi ini memang dirancang untuk pulih sendiri.</strong> Saat sambungan realtime putus,
+  halaman mencoba menyambung ulang berkala (1 → 15 detik) memakai <em>nama</em> server, bukan IP
+  yang tersimpan. Jadi begitu nama itu menunjuk ke IP baru, sambungan tersambung kembali
+  <strong>tanpa halaman perlu di-reload</strong>. Selama jeda itu, scan tetap bisa dilakukan dan
+  ditahan di antrean lokal — persis seperti saat server mati biasa.
+</div>
+
+<div class="callout callout-warn">
+  <strong>Tetap pakai IP statis walau memakai mDNS.</strong> Keduanya saling melengkapi, bukan saling
+  menggantikan: mDNS menyelamatkan Anda ketika IP <em>terlanjur</em> berubah, sedangkan IP statis
+  mencegahnya berubah sejak awal. Dan kalau suatu saat multicast diblokir di jaringan, IP statis
+  adalah jalan mundur yang masih bisa diandalkan.
+</div>
+
+<h3 id="b7"><span class="langkah">7</span> Beresi 3 hal lewat menu Admin</h3>
+<p>Buka <code>http://IP-SERVER:5000/admincbs.html</code>, login dengan akun dari langkah 4.</p>
+
+<div class="kartu mb-3">
+  <h6>a. Ganti password Login Leader <span class="pil pil-rose">penting</span></h6>
+  <p class="mb-0">Menu <strong>DATA PASSWORD → Login Leader</strong>. Bawaannya
+  <code>leader</code>/<code>leader123</code> — lemah, dan tidak bisa diubah dari file konfigurasi.</p>
+</div>
+
+<div class="kartu mb-3 border-rose-300 dark:border-rose-800">
+  <h6>b. Tambah password "Edit Data Station Leader" <span class="pil pil-rose">jangan dilewati</span></h6>
+  <p>Menu <strong>DATA PASSWORD → Edit Data Station Leader</strong>. Daftarnya kosong, dan selama
+  kosong <strong>fitur Edit Data di halaman Leader terkunci total</strong> — tidak ada password yang
+  bisa membukanya.</p>
+  <p class="mb-0"><strong>Kenapa ini serius:</strong> Edit Data adalah jalur yang dipakai Leader
+  untuk mencatat manual scan yang tertahan/ditolak saat server sempat mati. Kalau belum diisi,
+  jalur pemulihan itu justru tidak tersedia tepat ketika pertama kali dibutuhkan.</p>
+</div>
+
+<div class="kartu mb-3">
+  <h6>c. Cocokkan menu LINES &amp; SHIFT dengan kondisi lapangan</h6>
+  <p class="mb-0">Lihat tabel di langkah 5 — pastikan line yang aktif dan jam break/waktu akhir
+  memang sesuai. Kalau sudah cocok, tidak perlu diubah.</p>
+</div>
+
+<h3 id="b8"><span class="langkah">8</span> Pastikan otomatis nyala setelah listrik balik</h3>
+<pre><code>pm2 save            # ingat aplikasi apa saja yang harus jalan
+pm2 startup         # akan MENAMPILKAN satu perintah sudo — salin & jalankan perintah itu</code></pre>
+
+<div class="callout callout-warn">
+  <code>pm2 startup</code> tidak langsung memasang apa pun — ia <strong>mencetak sebuah
+  perintah</strong> yang harus Anda salin dan jalankan. Kalau langkah itu terlewat, backend
+  <strong>tidak akan menyala sendiri</strong> setelah komputer restart.
+</div>
+
+<p>Ujilah sungguhan — ini satu-satunya cara memastikan:</p>
+<pre><code>sudo reboot
+# tunggu server hidup, lalu dari PC lain:
+# buka http://IP-SERVER:5000  → harus langsung muncul tanpa disentuh</code></pre>
+
+<h3 id="b9"><span class="langkah">9</span> Pasang watchdog &amp; backup otomatis</h3>
+<p>PM2 hanya bereaksi kalau proses <em>mati</em>. Watchdog menangani keadaan yang lolos dari PM2 —
+misalnya proses terlihat hidup tapi sebenarnya macet.</p>
+
+<pre><code>cd /opt/cbs/backend
+cp .watchdog.env.example .watchdog.env
+DRY_RUN=1 bash scripts/watchdog.sh      # uji dulu, tidak benar-benar merestart</code></pre>
+
+<p>Kalau ujinya wajar, pasang penjadwalannya:</p>
+<pre><code>crontab -e</code></pre>
+<p class="ket">Tambahkan dua baris ini di bagian bawah:</p>
+<pre><code># cek kesehatan backend tiap menit
+* * * * * /opt/cbs/backend/scripts/watchdog.sh >> /opt/cbs/backend/logs/watchdog.log 2>&1
+
+# backup database tiap 30 menit
+*/30 * * * * cd /opt/cbs/backend && /usr/bin/node scripts/backup-db.js >> logs/backup.log 2>&1</code></pre>
+
+<div class="callout callout-warn">
+  <strong>Cek keesokan harinya.</strong> Jalankan <code>cat /opt/cbs/backend/logs/watchdog.log</code>
+  dan <code>ls /opt/cbs/backend/data/backups/</code>. Cron yang gagal biasanya gagal
+  <em>diam-diam</em> — Anda tidak akan diberi tahu. Kalau backup-nya kosong, kemungkinan besar Node
+  dipasang lewat nvm (lihat peringatan langkah 1).
+</div>
+
+<h3 id="b10"><span class="langkah">10</span> Buat shortcut di tiap PC station</h3>
+<p>Belum ada aplikasi desktop — tiap PC memakai Chrome dalam <em>mode aplikasi</em>: jendela sendiri,
+tanpa tab dan tanpa kolom alamat, sehingga bagi operator tidak terlihat seperti browser.</p>
+
+<p>Di Windows: klik kanan desktop → <strong>New → Shortcut</strong>, lalu isi:</p>
+<pre><code>"C:\Program Files\Google\Chrome\Application\chrome.exe" --app=http://IP-SERVER:5000/proses/line.html?n=6 --user-data-dir=C:\CBS\profil-line6 --start-maximized</code></pre>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/3">Untuk</th><th>Alamat yang dipakai</th></tr></thead>
+  <tbody>
+    <tr><td>PC station (FT/FI/Rework/Packing)</td><td><code>/proses/line.html?n=<strong>N</strong></code> — halaman pilih station, pilihannya tersimpan di PC itu</td></tr>
+    <tr><td>PC Leader</td><td><code>/proses/line-leader.html?n=<strong>N</strong></code></td></tr>
+    <tr><td>TV Live Monitoring</td><td><code>/monitoring/line.html?n=<strong>N</strong></code> — pakai <code>--kiosk</code> sebagai ganti <code>--app</code></td></tr>
+    <tr><td>Kantor / laporan</td><td><code>/inspection-report.html</code></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="ket">Ganti <strong>N</strong> dengan nomor line: 1, 2, 3, 4, 6, 7, 8, 9, atau 10.</p>
+
+<div class="callout callout-info">
+  <strong><code>--user-data-dir</code> harus berbeda di tiap PC — ini bukan sekadar kerapian.</strong>
+  Scan yang belum terkirim (saat server sempat mati) disimpan sementara di penyimpanan lokal profil
+  Chrome tersebut. Kalau memakai profil Chrome bersama yang sewaktu-waktu dibersihkan, scan yang
+  mengantre bisa ikut terbuang.
+</div>
+
+<div class="callout callout-netral text-sm">
+  Halaman line dirancang untuk layar lebar — jendela harus minimal <strong>1280 px</strong>. Kalau
+  lebih kecil, muncul peringatan "Hanya tersedia di Desktop".
+</div>
+
+<h3 id="b11"><span class="langkah">11</span> Uji satu line dulu, sehari penuh</h3>
+<p>Jangan langsung dipakai 9 line. Pilih <strong>satu</strong> line, jalankan satu shift penuh, dan
+pastikan semua ini berjalan:</p>
+
+<ul class="ceklis">
+  <li>Leader bisa login &amp; melakukan SETUP (part number, target, group)</li>
+  <li>Scan berurutan FT → FI1 → FI2 → FI3 tercatat semua</li>
+  <li>Input NG di station, lalu rework &amp; analisa di PC Under Rework</li>
+  <li>Packing berjalan dan nomor packing berurutan</li>
+  <li>Live Monitoring bergerak realtime</li>
+  <li>Tombol CALL LEADER berfungsi</li>
+  <li><strong>Uji server mati:</strong> saat scan berjalan, jalankan <code>pm2 stop cbs-backend</code>
+      di server. Operator harus tetap bisa scan (muncul indikator mengantre). Lalu
+      <code>pm2 start cbs-backend</code> — scan yang tertahan harus terkirim sendiri.</li>
+</ul>
+
+<div class="callout callout-ok">
+  Uji terakhir itu yang paling penting. Di situlah ketahanan sistem terhadap listrik/jaringan putus
+  benar-benar terbukti — bukan dari dokumentasi.
+</div>
+
+<!-- ══════════ CEKLIS ══════════ -->
+<h2 id="ceklis">Ceklis akhir</h2>
+<ul class="ceklis">
+  <li>Node <code>v24.x</code> terpasang di <code>/usr/bin/node</code> (bukan nvm)</li>
+  <li><code>timedatectl</code> menunjukkan <strong>Asia/Jakarta (WIB, +0700)</strong> dan
+      <code>synchronized: yes</code> — <strong>sebelum</strong> shift pertama</li>
+  <li>Port 5000 <strong>tidak</strong> di-<em>forward</em> ke internet di router</li>
+  <li>PM2 terpasang, <code>pm2 status</code> menunjukkan <code>cbs-backend</code> <strong>online</strong></li>
+  <li><code>npm run build</code> sudah dijalankan (folder <code>frontend/dist</code> ada)</li>
+  <li>Password admin diisi di <code>ecosystem.config.cjs</code> <strong>sebelum</strong> nyala pertama</li>
+  <li>Password Login Leader sudah diganti</li>
+  <li>Password Edit Data sudah ditambahkan (minimal satu)</li>
+  <li>Port 5000 terbuka, dan halaman bisa dibuka dari PC lain</li>
+  <li>IP server sudah statis / di-reserve di router</li>
+  <li><em>(kalau memakai nama domain)</em> <code>ping cbs.local</code> berhasil dari PC station, dan
+      <code>PORT</code> di <code>ecosystem.config.cjs</code> tetap <code>5000</code></li>
+  <li><code>pm2 save</code> + perintah dari <code>pm2 startup</code> sudah dijalankan</li>
+  <li>Sudah diuji <code>sudo reboot</code> dan sistem nyala sendiri</li>
+  <li>Cron watchdog &amp; backup terpasang, dan lognya dicek keesokan harinya</li>
+  <li>Shortcut terpasang di PC station dengan <code>--user-data-dir</code> berbeda-beda</li>
+  <li>Satu line sudah diuji sehari penuh, termasuk simulasi server mati</li>
+</ul>
+
+<!-- ══════════ MASALAH ══════════ -->
+<h2 id="masalah">Kalau ada masalah</h2>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/3">Gejala</th><th>Penyebab &amp; solusi</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Halaman kosong / <code>404</code>, tapi <code>/api/health</code> jawab OK</td>
+      <td><code>npm run build</code> belum dijalankan, atau gagal. Jalankan ulang di
+      <code>/opt/cbs</code>, pastikan folder <code>frontend/dist</code> muncul, lalu
+      <code>pm2 restart cbs-backend</code>.</td>
+    </tr>
+    <tr>
+      <td>Backend mati terus / log berisi <code>NODE_MODULE_VERSION</code> atau
+      <code>invalid ELF header</code></td>
+      <td><code>node_modules</code> ikut ter-copy dari komputer development. Hapus dan pasang ulang:
+      <pre class="mt-2"><code>cd /opt/cbs
+rm -rf node_modules backend/node_modules frontend/node_modules
+npm install && npm run setup && npm run build
+pm2 restart cbs-backend</code></pre></td>
+    </tr>
+    <tr>
+      <td>Dari server bisa dibuka, dari PC lain tidak</td>
+      <td>Firewall (<code>sudo ufw allow 5000/tcp</code>), atau IP server salah/berubah
+      (<code>ip addr show</code>), atau PC station beda jaringan/VLAN.</td>
+    </tr>
+    <tr>
+      <td>Password admin tidak berubah walau file sudah diedit</td>
+      <td>Server terlanjur nyala sebelum diisi (lihat langkah 4). Login dengan
+      <code>adminCbs</code>/<code>admincbs123!@#</code>, lalu ganti lewat
+      <strong>Admin → DATA PASSWORD</strong>.</td>
+    </tr>
+    <tr>
+      <td>Leader tidak bisa membuka "Edit Data"</td>
+      <td>Password Edit Data belum ditambahkan — langkah 7b.</td>
+    </tr>
+    <tr>
+      <td>Setelah komputer restart, sistem tidak nyala</td>
+      <td><code>pm2 save</code> belum dijalankan, atau perintah yang dicetak <code>pm2 startup</code>
+      belum disalin-jalankan. Ulangi langkah 8.</td>
+    </tr>
+    <tr>
+      <td>Backup tidak pernah terbentuk</td>
+      <td>Node dipasang lewat nvm sehingga cron tidak menemukannya. Cek <code>which node</code> —
+      harus <code>/usr/bin/node</code>. Lihat peringatan langkah 1.</td>
+    </tr>
+    <tr>
+      <td>Data scan terasa lambat / monitoring tersendat</td>
+      <td>Cek <code>pm2 status</code> (kolom memori) dan sisa disk (<code>df -h</code>). Disk penuh
+      membuat database gagal menulis walau aplikasi terlihat sehat.</td>
+    </tr>
+    <tr class="bg-rose-50 dark:bg-rose-950/40">
+      <td>Halaman terbuka, scan tercatat, tapi <strong>Live Monitoring diam</strong> dan CALL LEADER
+      tidak berfungsi</td>
+      <td><strong>Port 5000 tidak terjangkau dari PC station.</strong> Koneksi realtime selalu
+      memakai port 5000 secara langsung, terpisah dari port halaman. Pastikan
+      <code>PORT</code> di <code>ecosystem.config.cjs</code> masih <code>5000</code> (jangan diubah
+      ke 80 — lihat langkah 6b) dan <code>sudo ufw status</code> menampilkan port 5000 terbuka.</td>
+    </tr>
+    <tr>
+      <td>Nama domain tidak dikenali dari PC station</td>
+      <td>Kalau memakai mDNS, akhiran <code>.local</code> wajib ditulis
+      (<code>http://cbs.local:5000</code>). Uji dulu dengan <code>ping cbs</code> /
+      <code>ping cbs.local</code> — kalau ping-nya saja gagal, masalahnya di penamaan (langkah 6b
+      bagian A), bukan di aplikasi. Cara paling pasti: file <code>hosts</code> (Cara 3).</td>
+    </tr>
+    <tr class="bg-rose-50 dark:bg-rose-950/40">
+      <td>Jam scan meleset jauh (mis. tercatat dini hari padahal scan pagi), atau data masuk ke
+      tanggal yang salah</td>
+      <td><strong>Zona waktu server salah</strong> — kemungkinan besar masih UTC. Perbaiki dengan
+      <code>sudo timedatectl set-timezone Asia/Jakarta</code> lalu
+      <code>pm2 restart cbs-backend</code> (langkah 1b). Data yang sudah terlanjur tercatat perlu
+      dibetulkan manual lewat Edit Data.</td>
+    </tr>
+    <tr>
+      <td>PC station bisa internetan, tapi tidak bisa membuka server</td>
+      <td>Beda jaringan/VLAN, atau WiFi memakai <em>AP isolation</em>. Lihat bagian
+      <a href="#internet">jaringan online</a>.</td>
+    </tr>
+    <tr>
+      <td>Tiba-tiba semua PC station tidak bisa terhubung, padahal kemarin normal</td>
+      <td>Kemungkinan besar <strong>IP server berubah</strong>. Cek di server dengan
+      <code>ip addr show</code>, bandingkan dengan IP lama. Penanganannya tergantung cara penamaan
+      yang dipakai — lihat langkah 6b bagian C. Kalau memakai mDNS, tunggu beberapa menit dulu:
+      biasanya pulih sendiri.</td>
+    </tr>
+    <tr>
+      <td>Nama domain jalan, tapi masih harus mengetik <code>:5000</code></td>
+      <td><strong>Itu normal, bukan kerusakan.</strong> <code>:5000</code> memang tetap ada kecuali
+      bagian B dikerjakan — dan bagian B umumnya tidak perlu, karena operator mengklik shortcut dan
+      tidak pernah mengetik alamat.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Perintah yang sering dipakai</h3>
+<pre><code>pm2 status                    # aplikasi jalan atau tidak
+pm2 logs cbs-backend          # lihat log berjalan (Ctrl+C untuk keluar)
+pm2 restart cbs-backend       # nyalakan ulang
+pm2 stop cbs-backend          # matikan sementara
+df -h                         # sisa disk
+ls -lh /opt/cbs/backend/data/ # ukuran database</code></pre>
+
+<!-- ══════════ PERAWATAN ══════════ -->
+<h2 id="perawatan">Perawatan rutin &amp; cara update ke depan</h2>
+
+<div class="grid sm:grid-cols-3 gap-3 my-4">
+  <div class="kartu"><h6 class="text-emerald-700 dark:text-emerald-400">Harian</h6>
+    <p class="mb-0">Lihat <code>pm2 status</code> sekali. Pastikan <code>cbs-backend</code>
+    <strong>online</strong> dan jumlah restart tidak melonjak.</p></div>
+  <div class="kartu"><h6 class="text-emerald-700 dark:text-emerald-400">Mingguan</h6>
+    <p class="mb-0">Cek sisa disk (<code>df -h</code>) dan pastikan folder
+    <code>data/backups/</code> terus terisi.</p></div>
+  <div class="kartu"><h6 class="text-emerald-700 dark:text-emerald-400">Tahunan</h6>
+    <p class="mb-0">Arsipkan data tahun lama lewat <strong>Admin → BACKUP &amp; RESTORE</strong> agar
+    database tetap ramping. Lakukan <strong>di luar jam shift</strong>.</p></div>
+</div>
+
+<div class="callout callout-danger">
+  <strong>Simpan salinan backup di luar server ini.</strong> Backup otomatis tersimpan di disk yang
+  sama dengan databasenya — kalau disk itu rusak, keduanya hilang bersamaan. Salin
+  <code>/opt/cbs/backend/data/backups/</code> dan
+  <code>/opt/cbs/backend/data/proses-backups/</code> ke NAS/hard disk lain secara berkala.
+</div>
+
+<h3>Kalau ada perbaikan kode di kemudian hari</h3>
+<p>Di <strong>komputer development</strong> — buat ulang paketnya, lalu kirim:</p>
+<pre><code>npm run release
+
+rsync -avz --progress \
+  --exclude 'backend/ecosystem.config.cjs' \
+  /home/alifr/Projects/casuarina-barcode-system/release/cbs-server/ \
+  NAMA-USER@IP-SERVER:/opt/cbs/</code></pre>
+<p>Lalu di <strong>server</strong>:</p>
+<pre><code>cd /opt/cbs
+npm run setup                 # kalau ada dependency baru
+npm run build                 # bikin ulang halaman web
+pm2 restart cbs-backend</code></pre>
+
+<div class="callout callout-warn">
+  <strong>Perhatikan baris <code>--exclude</code> itu — hanya dipakai saat UPDATE, bukan pemasangan
+  pertama.</strong> <code>ecosystem.config.cjs</code> di server berisi
+  <code>ADMIN_PASSWORD</code> yang Anda isi di langkah 4; tanpa pengecualian ini, update akan
+  menimpanya dengan versi kosong dari komputer development. Backend tetap jalan, tapi diam-diam
+  kembali memakai pengaturan bawaan.
+</div>
+
+<div class="callout callout-ok">
+  <strong>Data Anda aman saat update.</strong> Paket rilis tidak pernah berisi
+  <code>backend/data/</code>, jadi database di server tidak tersentuh berapa kali pun Anda mengirim
+  ulang kode. Lakukan <strong>di luar jam shift</strong>, karena <code>pm2 restart</code> memutus
+  koneksi realtime sesaat.
+</div>
+
+<!-- ══════════ WINDOWS ══════════ -->
+<h2 id="internet">Kalau jaringan pabrik terhubung internet (mis. berlangganan Biznet)</h2>
+
+<div class="callout callout-ok">
+  <strong>Semua langkah di halaman ini tetap berlaku apa adanya — tidak ada yang perlu diubah.</strong>
+  PC station menghubungi server lewat jaringan lokal memakai alamat internal
+  (<code>192.168.x.x</code> / <code>cbs.local</code>), <strong>tidak lewat internet</strong>. Data scan
+  tidak pernah keluar dari pabrik, dan kuota internet tidak terpakai untuk operasi harian.
+</div>
+
+<p>Adanya internet justru memudahkan: pemasangan Node.js &amp; dependency (langkah 1–3) jadi lancar,
+dan jam server terkoreksi otomatis (langkah 1b). Yang perlu ditambahkan hanya beberapa
+kewaspadaan berikut.</p>
+
+<h3>1 · Jangan pernah membuka akses dari internet</h3>
+
+<div class="callout callout-danger">
+  <div class="font-semibold mb-1">Jangan melakukan <em>port forwarding</em> port 5000 di router.</div>
+  <p class="mb-2">Permintaan ini biasanya muncul dengan niat baik — "biar bisa dipantau dari rumah".
+  Tapi aplikasi ini dirancang untuk jaringan tertutup pabrik, bukan untuk internet terbuka:</p>
+  <ul class="mb-2">
+    <li><strong>Tidak memakai HTTPS</strong> — username &amp; password admin dikirim apa adanya dan
+    bisa dibaca di sepanjang jalur.</li>
+    <li><strong>Password tersimpan apa adanya</strong> di database (tidak diacak), sesuai kebutuhan
+    pengelolaan manual lewat menu Admin.</li>
+    <li><strong>Tidak ada pembatasan percobaan login</strong> — penebakan password bisa dicoba tanpa
+    henti.</li>
+    <li><strong>Menerima permintaan dari alamat mana pun</strong> (pengaturan CORS terbuka, wajar
+    untuk LAN).</li>
+  </ul>
+  <p class="mb-0">Selama tidak di-<em>forward</em>, server Anda tidak terjangkau dari internet meski
+  jaringannya online — router menyembunyikannya secara otomatis. Yang berbahaya adalah membukanya
+  dengan sengaja.</p>
+</div>
+
+<div class="callout callout-info">
+  <strong>Kalau memang butuh akses dari luar pabrik</strong> (mis. manajemen ingin melihat
+  Inspection Report dari kantor pusat), mintalah IT menyiapkan <strong>VPN</strong> ke jaringan
+  pabrik. Dengan VPN, pengguna seolah berada di dalam jaringan lokal — semua kelemahan di atas tidak
+  terekspos ke internet. Ini satu-satunya cara yang aman tanpa mengubah aplikasi.
+</div>
+
+<h3>2 · Batasi port 5000 hanya untuk jaringan pabrik</h3>
+<p>Sudah dibahas di langkah 6, tapi jadi lebih penting bila jaringannya online. Bentuk yang
+disarankan:</p>
+<pre><code>sudo ufw allow from 192.168.1.0/24 to any port 5000 proto tcp</code></pre>
+<p class="ket">Dengan begitu, walau suatu saat ada jalur tak terduga dari luar, port-nya tetap
+tertutup untuk alamat di luar jaringan pabrik.</p>
+
+<h3>3 · Router bawaan ISP sering terbatas</h3>
+<p>Router yang dipasang penyedia internet umumnya punya menu pengaturan yang dikunci sebagian. Dua
+akibatnya untuk kita:</p>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/3">Kendala</th><th>Dampak &amp; jalan keluar</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Tidak bisa menambah catatan DNS sendiri</td>
+      <td><strong>Cara 1 di langkah 6b tidak bisa dipakai.</strong> Gunakan
+      <strong>mDNS (<code>cbs.local</code>)</strong> — tidak butuh dukungan router sama sekali.</td>
+    </tr>
+    <tr>
+      <td>Tidak bisa membuat <em>DHCP reservation</em></td>
+      <td>Atur IP statis langsung di server (cara manual di langkah 6), dan pilih alamat di luar
+      jangkauan DHCP router agar tidak bentrok.</td>
+    </tr>
+    <tr class="bg-amber-50 dark:bg-amber-950/40">
+      <td>Router diganti/di-reset teknisi ISP</td>
+      <td>Semua pengaturan router hilang, dan <strong>IP server bisa berubah</strong>. Inilah alasan
+      kenapa <strong>mDNS layak dipakai</strong> walau Anda sudah memasang IP statis — lihat
+      langkah 6b bagian C.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>4 · Dua gangguan khas jaringan perusahaan</h3>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/3">Gejala</th><th>Sebab</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>PC station terhubung internet dengan lancar, tapi tidak bisa membuka server sama sekali</td>
+      <td>PC berada di <strong>jaringan/VLAN yang berbeda</strong> dari server (misalnya WiFi tamu),
+      atau WiFi memakai <em>AP isolation</em> yang melarang perangkat saling menghubungi. Internet
+      tetap jalan karena arahnya keluar, bukan antar-perangkat. Minta IT menempatkan PC station dan
+      server pada jaringan yang sama.</td>
+    </tr>
+    <tr>
+      <td>PC station tiba-tiba restart di tengah shift</td>
+      <td>Windows Update otomatis. Atur jam aktif (<em>active hours</em>) di PC station agar
+      restart tidak terjadi pada jam produksi.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout callout-warn">
+  <strong>Internet mati tidak menghentikan produksi.</strong> Selama jaringan lokal masih hidup,
+  seluruh sistem tetap berjalan normal — scan, monitoring, dan panggilan Leader tidak melewati
+  internet sama sekali. Yang terhenti hanya koreksi jam otomatis, dan itu tidak terasa dalam
+  hitungan hari.
+</div>
+
+<h2 id="windows">Catatan: kalau komputer servernya Windows</h2>
+<p>Bisa, tapi ada empat bagian yang berbeda:</p>
+<div class="tbl-wrap">
+<table class="tbl">
+  <thead><tr><th class="w-1/4">Bagian</th><th>Perbedaannya</th></tr></thead>
+  <tbody>
+    <tr><td>Pasang Node</td><td>Unduh installer Node.js 24 dari <code>nodejs.org</code>, pasang seperti aplikasi biasa.</td></tr>
+    <tr><td>Auto-nyala saat boot</td><td><code>pm2 startup</code> tidak jalan di Windows. Pakai
+      <code>npm i -g pm2-windows-startup</code> lalu <code>pm2-startup install</code>, atau daftarkan lewat Task Scheduler.</td></tr>
+    <tr><td>Watchdog &amp; backup</td><td>Tidak ada cron. <code>watchdog.sh</code> adalah skrip bash — perlu dijadwalkan
+      lewat <strong>Task Scheduler</strong> (dan skripnya disesuaikan), atau pakai Git Bash/WSL.</td></tr>
+    <tr><td>Firewall</td><td>Windows Defender Firewall → Inbound Rules → izinkan port 5000.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="text-slate-500 text-sm">Karena watchdog &amp; backup otomatis dirancang untuk cron,
+<strong>Linux lebih disarankan</strong> untuk server ini.</p>
+
+<hr class="my-10 border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 text-sm no-print">
+  Rujukan teknis lebih rinci ada di <code>backend/OPERATIONS.md</code> (§0 Provisioning server baru,
+  §1b Watchdog, §2 Backup) dan <code>CLAUDE.md</code> di dalam project.
+</p>
+
+<div class="h-16"></div>
+</main>
+</div>
+</div>
+
+<script>
+  /* ── Tombol "Salin" di tiap blok perintah ── */
+  document.querySelectorAll('pre').forEach(function (pre) {
+    var code = pre.querySelector('code');
+    if (!code) return;
+    var b = document.createElement('button');
+    b.className = 'btn-salin no-print';
+    b.textContent = 'Salin';
+    b.onclick = function () {
+      navigator.clipboard.writeText(code.innerText).then(function () {
+        b.textContent = '✓ Tersalin';
+        setTimeout(function () { b.textContent = 'Salin'; }, 1500);
+      });
+    };
+    pre.appendChild(b);
+  });
+
+  /* ── Sakelar mode malam ──
+     Kelas .dark sudah dipasang lebih awal oleh skrip di <head> (anti-kedip);
+     di sini hanya menyimpan pilihan manual & menyinkronkan aria-checked. */
+  var sakelar = document.getElementById('sakelar-tema');
+  var akar = document.documentElement;
+  function sinkronTema() { sakelar.setAttribute('aria-checked', akar.classList.contains('dark')); }
+  sinkronTema();
+  sakelar.onclick = function () {
+    var gelap = akar.classList.toggle('dark');
+    try { localStorage.setItem('tutorial_tema', gelap ? 'dark' : 'light'); } catch (e) {}
+    sinkronTema();
+  };
+
+  /* ── Sidebar sebagai laci di layar kecil ──
+     Di desktop sidebar selalu tampil (md:translate-x-0), jadi kelas
+     -translate-x-full di bawah ini hanya berpengaruh di layar kecil. */
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('backdrop');
+  var tombolBuka = document.getElementById('buka-sidebar');
+  var tombolTutup = document.getElementById('tutup-sidebar');
+
+  function setSidebar(buka) {
+    sidebar.classList.toggle('-translate-x-full', !buka);
+    backdrop.classList.toggle('hidden', !buka);
+    tombolTutup.classList.toggle('hidden', !buka);
+    tombolTutup.classList.toggle('flex', buka);
+    tombolBuka.setAttribute('aria-expanded', buka);
+  }
+  tombolBuka.onclick = function () { setSidebar(sidebar.classList.contains('-translate-x-full')); };
+  tombolTutup.onclick = function () { setSidebar(false); };
+  backdrop.onclick = function () { setSidebar(false); };
+  /* Memilih bab langsung menutup laci — tanpa ini pembaca di HP harus menutupnya
+     sendiri padahal isinya sudah tergulir ke tempat yang benar. */
+  sidebar.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.onclick = function () { setSidebar(false); };
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setSidebar(false); });
+
+  /* ── Penanda bab aktif di daftar isi ──
+     Bab dianggap aktif bila judulnya adalah yang TERAKHIR melewati garis atas
+     layar (offset 120px ≈ tinggi navbar + sedikit jeda). Dihitung dari daftar
+     posisi judul, bukan IntersectionObserver, agar bab panjang yang judulnya
+     sudah tergulir jauh ke atas tetap ditandai aktif. */
+  var tautanToc = [].slice.call(sidebar.querySelectorAll('a[href^="#"]'));
+  var judul = tautanToc
+    .map(function (a) { return { tautan: a, el: document.getElementById(a.hash.slice(1)) }; })
+    .filter(function (x) { return x.el; });
+  var aktifKini = null;
+
+  function tandaiAktif() {
+    var batas = 120;
+    var pilih = judul[0];
+    for (var i = 0; i < judul.length; i++) {
+      if (judul[i].el.getBoundingClientRect().top <= batas) pilih = judul[i];
+    }
+    /* Sudah mentok di dasar halaman → tandai bab terakhir, karena bab pendek di
+       bawah tak akan pernah mencapai garis batas. */
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2)
+      pilih = judul[judul.length - 1];
+    if (pilih === aktifKini) return;
+    if (aktifKini) aktifKini.tautan.classList.remove('aktif');
+    pilih.tautan.classList.add('aktif');
+    aktifKini = pilih;
+  }
+
+  if (judul.length) {
+    /* rAF menahan agar gulir cepat tidak memicu perhitungan berkali-kali. */
+    var menunggu = false;
+    addEventListener('scroll', function () {
+      if (menunggu) return;
+      menunggu = true;
+      requestAnimationFrame(function () { menunggu = false; tandaiAktif(); });
+    }, { passive: true });
+    addEventListener('resize', tandaiAktif, { passive: true });
+    tandaiAktif();
+  }
+</script>
+</body>
+</html>
